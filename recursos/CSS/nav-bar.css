@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .custom-navbar {
@@ -12,6 +13,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    position: absolute;
+    left: 20px;
 }
 
 .custom-navbar-list {
@@ -38,4 +46,34 @@ body {
 .custom-navbar-link:hover {
     background-color: #ff6600;
     color: #fff;
+}
+
+.custom-navbar-link.active {
+    background-color: #ff6600;
+    color: #fff;
+}
+
+
+@media (max-width: 768px) {
+    .custom-navbar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .custom-navbar-item {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .logo {
+        position: static;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-navbar-link {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
 }
