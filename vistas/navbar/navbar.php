@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/recursos/CSS/nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="recursos/CSS/nav-bar.css">
 </head>
 
 <body>
