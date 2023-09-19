@@ -58,7 +58,7 @@ class Publicacion extends Conectar {
     public function getWhereSeccion($value)  {
         $this->val = $value;
 
-        $sql = "SELECT * FROM {$this->view} WHERE IdSeccion Like '%{$this->val}%' ";
+        $sql = "SELECT * FROM {$this->view} WHERE Seccion Like '%{$this->val}%' ";
         // echo $sql;
         $result = $this->db->query($sql);
         while($row = $result->fetch_assoc())   {

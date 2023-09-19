@@ -23,7 +23,7 @@ if((!empty($_GET['Id'])) && (isset($_GET['Id']))) {
     $Id = "";
 }
 
-$dir_doc = "Recursos/Archivos/";
+$dir_doc = "recursos/Archivos/";
 
 // $fch_r = date('Y-m-d');     //OBTIENE LA FECHA ACTUAL
 
@@ -73,7 +73,7 @@ if((!empty($_GET['actionfile'])) && (isset($_GET['actionfile']))) {
                 unlink($rtfile);
             }
         }else{
-            header('Location: index.php?pageEdicion&Id='. $Id .'');
+            header('Location: index.php?pageEdicionPagina&Id='. $Id .'');
         }
     }
 }

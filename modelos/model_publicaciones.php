@@ -47,7 +47,7 @@ if((!empty($_GET['actionpub'])) && (isset($_GET['actionpub']))) {
     if($action === 'insert') {
         // COMPROBAMOS QUE TODOS LOS ARCHIVOS HAYAN SIDO CORRECTOS
         if($arch == 0)  {
-            header('Location: index.php?page=Edicion&form='. $Seccion .'&Id= '. $Id .'');
+            header('Location: index.php?page=EdicionPagina&form='. $Seccion .'&Id= '. $Id .'');
         }else{
             $publicacion->values[] = "'".$_POST['Seccion']."'";
             $publicacion->values[] = "'".$_POST['Principal']."'";
@@ -76,7 +76,7 @@ if((!empty($_GET['actionpub'])) && (isset($_GET['actionpub']))) {
 
             // COMPROBAMOS QUE TODOS LOS ARCHIVOS HAYAN SIDO CORRECTOS
             if($arch == 0)  {
-                header('Location: index.php?page=Edicion&form='. $form .'');
+                header('Location: index.php?page=EdicionPagina&form='. $form .'');
             }else{
 
                 //  MOVEMOS EL ARCHIVO A UNA RUTA DEL SERVIDOR LOCAL DE MANERA TEMPORAL
