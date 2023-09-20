@@ -14,6 +14,12 @@ switch ($page) {
     case "EdicionPagina":
         include_once("vistas/users/admin/Edicion.php");
         break;
+    case "EdicionNosotros":
+        include_once("vistas/users/admin/EdicionNosotros.php");
+        break;
+    case "PublicaiconesNosotros":
+        include_once("vistas/users/admin/PublicacionesNosotros.php");
+        break;
     case "Publicaciones":
         include_once("vistas/users/admin/Publicaciones.php");
         break;

@@ -26,7 +26,16 @@
             <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Nosotros</a></li>
             <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Nuestros Clientes</a></li>
             <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Contacto</a></li>
-            <li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=Publicaciones">Publicaciones</a></li>
+            <li class="custom-navbar-item dropdown">
+                <a class="custom-navbar-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                    Publicaciones
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="index.php?page=Publicaciones">Imagenes de Carrusel</a></li>
+                    <li><a class="dropdown-item" href="index.php?page=PublicaiconesNosotros">Mision, Vision y Valores</a></li>
+                </ul>
+
+            </li>
         </ul>
     </nav>
 
