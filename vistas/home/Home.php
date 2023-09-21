@@ -86,7 +86,6 @@
         .container-servicios h1 {
             text-align: center;
             background: linear-gradient(45deg, #ff6600, #007BFF);
-            /* Gradiente con colores más brillantes */
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -108,71 +107,7 @@
         .servicios-link {
             text-decoration: none;
             color: #000;
-            /* Color negro */
             font-weight: bold;
-        }
-
-        .servicios-link-visited {
-            color: #000;
-        }
-
-        .servicios-link:hover {
-            text-decoration: underline;
-        }
-
-        .container-quienes-nos-eliges {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .carousel-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-height: 600px;
-        }
-
-        .carousel-container img {
-            max-width: 100%;
-            height: auto;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-control-prev,
-        .carousel-control-next {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            opacity: 0;
-            transition: background-color 0.3s, opacity 0.3s;
-        }
-
-        .carousel-control-prev:hover,
-        .carousel-control-next:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            font-size: 30px;
-            color: #fff;
-        }
-
-        .carousel-container:hover .carousel-control-prev,
-        .carousel-container:hover .carousel-control-next {
-            opacity: 1;
         }
     </style>
 </head>
@@ -204,19 +139,19 @@
     <section class="container-servicios">
         <h1 class="">Servicios que Realizamos</h1>
         <ul>
-            <li><a class="servicios-link servicios-link-visited" href="#">Limpieza Integral</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Limpieza Sanitizante COVID-19</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Limpieza de Consorcios</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Facility Services, Mantenimiento de Edificios, Reparaciones, Pintura, etc.</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Movimiento de Documentación Interna y Externa</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Mantenimiento de Espacios Verdes, Corte de Pasto</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Finales de Obras (Solo con la contratación del servicio de Limpieza y Mantenimiento)</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Lavado de Vidrios en Altura. Tarea realizada con personal propio</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Lavado de Alfombras</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Limpieza de Tanques de Agua Potable</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Limpieza Mecánica de Pisos y Terminado en Cera</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Provisión de Insumos de Tocador</a></li>
-            <li><a class="servicios-link servicios-link-visited" href="#">Provisión de Aromatizadores y Desodorizadores</a></li>
+            <li><a class="servicios-link" href="#">Limpieza Integral</a></li>
+            <li><a class="servicios-link" href="#">Limpieza Sanitizante COVID-19</a></li>
+            <li><a class="servicios-link" href="#">Limpieza de Consorcios</a></li>
+            <li><a class="servicios-link" href="#">Facility Services, Mantenimiento de Edificios, Reparaciones, Pintura, etc.</a></li>
+            <li><a class="servicios-link" href="#">Movimiento de Documentación Interna y Externa</a></li>
+            <li><a class="servicios-link" href="#">Mantenimiento de Espacios Verdes, Corte de Pasto</a></li>
+            <li><a class="servicios-link" href="#">Finales de Obras (Solo con la contratación del servicio de Limpieza y Mantenimiento)</a></li>
+            <li><a class="servicios-link" href="#">Lavado de Vidrios en Altura. Tarea realizada con personal propio</a></li>
+            <li><a class="servicios-link" href="#">Lavado de Alfombras</a></li>
+            <li><a class="servicios-link" href="#">Limpieza de Tanques de Agua Potable</a></li>
+            <li><a class="servicios-link" href="#">Limpieza Mecánica de Pisos y Terminado en Cera</a></li>
+            <li><a class="servicios-link" href="#">Provisión de Insumos de Tocador</a></li>
+            <li><a class="servicios-link" href="#">Provisión de Aromatizadores y Desodorizadores</a></li>
         </ul>
     </section>
 
@@ -225,28 +160,28 @@
         <h1 class="container-servicios h1">Nuestros Clientes</h1>
         <div class="row row-cols-1 row-cols-md-4 mt-1 g-4">
             <div class="col mb-4 pb-0">
-                <div class="card hv-card">
+                <div class="card">
                     <a href="#">
                         <img src="marcas-logo-irwin.jpg" alt="Imagen 1" class="card-img-top" />
                     </a>
                 </div>
             </div>
             <div class="col mb-4 pb-0">
-                <div class="card hv-card">
+                <div class="card">
                     <a href="#">
                         <img src="eeee.png" alt="Imagen 2" class="card-img-top" />
                     </a>
                 </div>
             </div>
             <div class="col mb-4 pb-0">
-                <div class="card hv-card">
+                <div class="card">
                     <a href="#">
                         <img src="descarga.png" alt="Imagen 3" class="card-img-top" />
                     </a>
                 </div>
             </div>
             <div class="col mb-4 pb-0">
-                <div class="card hv-card">
+                <div class="card">
                     <a href="#">
                         <img src="Craftsman-logo.jpg" alt="Imagen 4" class="card-img-top" />
                     </a>
