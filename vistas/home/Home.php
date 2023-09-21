@@ -5,10 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu Título Aquí</title>
-    <!-- Agrega las referencias a Bootstrap 5 CSS y JS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,9 +13,8 @@
             padding: 0;
         }
 
+        /* Estilo para la sección de Misión, Visión y Valores */
         .container-mision-vision-valores {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
@@ -43,14 +38,19 @@
         .mvv-item h2 {
             color: #007BFF;
             position: relative;
+            /* Añadido para la posición relativa */
         }
 
+        /* Línea decorativa debajo de los headings */
         .mvv-item h2::after {
             content: "";
             position: absolute;
             width: 100%;
+            /* Ancho del 100% del card */
             height: 2px;
+            /* Grosor de la línea */
             background-color: #007BFF;
+            /* Color de la línea */
             bottom: 0;
             left: 0;
             transform: scaleX(0);
@@ -63,6 +63,7 @@
             transform-origin: left;
         }
 
+        /* Ocultar el párrafo por defecto y aplicar una transición suave */
         .mvv-paragraph {
             max-height: 0;
             overflow: hidden;
@@ -71,14 +72,17 @@
             text-align: justify;
         }
 
+        /* Mostrar el párrafo al hacer hover */
         .mvv-item:hover .mvv-paragraph {
             max-height: 1000px;
             opacity: 1;
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
         }
 
+        /* Estilo para la sección de Servicios */
         .container-servicios {
-            max-width: 1200px;
+            max-width: 800px;
+            /* Ancho del contenedor ajustado */
             margin: 0 auto;
             padding: 20px;
         }
@@ -86,6 +90,7 @@
         .container-servicios h1 {
             text-align: center;
             background: linear-gradient(45deg, #ff6600, #007BFF);
+            /* Gradiente con colores más brillantes */
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -104,10 +109,20 @@
             margin-bottom: 10px;
         }
 
+        /* Clases personalizadas para los enlaces con el prefijo "servicios" */
         .servicios-link {
             text-decoration: none;
             color: #000;
+            /* Color negro */
             font-weight: bold;
+        }
+
+        .servicios-link-visited {
+            color: #000;
+        }
+
+        .servicios-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -117,18 +132,21 @@
     <section class="container-mision-vision-valores">
         <div class="mvv-item">
             <h2>Misión</h2>
+            <!-- Aquí se mostrará la Misión obtenida dinámicamente con PHP -->
             <p class="mvv-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus aliquam sed est veritatis? Sint sed, quod dolores inventore impedit voluptatibus reprehenderit corporis voluptate beatae tenetur a dolore distinctio maiores quos.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolores nobis rerum dolorum, iste minus voluptatem pariatur unde incidunt, modi reprehenderit? Mollitia, quam enim cum fuga corrupti dicta numquam expedita.
             </p>
         </div>
         <div class="mvv-item">
             <h2>Visión</h2>
+            <!-- Aquí se mostrará la Visión obtenida dinámicamente con PHP -->
             <p class="mvv-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut molestiae exercitationem in cupiditate, earum eos accusantium eius tempora neque culpa esse incidunt, ullam placeat maiores sequi perspiciatis quod quidem optio.
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perspiciatis, unde distinctio cum perferendis vitae minus saepe vel nesciunt! Cupiditate adipisci neque ratione alias accusamus laborum veniam ab itaque ducimus.
             </p>
         </div>
         <div class="mvv-item">
             <h2>Valores</h2>
+            <!-- Aquí se mostrarán los Valores obtenidos dinámicamente con PHP -->
             <p class="mvv-paragraph">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque deserunt ipsa vero doloremque dicta, animi corporis quod alias eius laudantium temporibus. Fugiat, perspiciatis libero. Ipsam, repellat. Animi quis ipsa possimus.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sapiente odio optio impedit sint sequi vel explicabo eos id in est ipsum, qui quo, provident fugit et accusamus quas cumque!
             </p>
@@ -139,58 +157,21 @@
     <section class="container-servicios">
         <h1 class="">Servicios que Realizamos</h1>
         <ul>
-            <li><a class="servicios-link" href="#">Limpieza Integral</a></li>
-            <li><a class="servicios-link" href="#">Limpieza Sanitizante COVID-19</a></li>
-            <li><a class="servicios-link" href="#">Limpieza de Consorcios</a></li>
-            <li><a class="servicios-link" href="#">Facility Services, Mantenimiento de Edificios, Reparaciones, Pintura, etc.</a></li>
-            <li><a class="servicios-link" href="#">Movimiento de Documentación Interna y Externa</a></li>
-            <li><a class="servicios-link" href="#">Mantenimiento de Espacios Verdes, Corte de Pasto</a></li>
-            <li><a class="servicios-link" href="#">Finales de Obras (Solo con la contratación del servicio de Limpieza y Mantenimiento)</a></li>
-            <li><a class="servicios-link" href="#">Lavado de Vidrios en Altura. Tarea realizada con personal propio</a></li>
-            <li><a class="servicios-link" href="#">Lavado de Alfombras</a></li>
-            <li><a class="servicios-link" href="#">Limpieza de Tanques de Agua Potable</a></li>
-            <li><a class="servicios-link" href="#">Limpieza Mecánica de Pisos y Terminado en Cera</a></li>
-            <li><a class="servicios-link" href="#">Provisión de Insumos de Tocador</a></li>
-            <li><a class="servicios-link" href="#">Provisión de Aromatizadores y Desodorizadores</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Limpieza Integral</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Limpieza Sanitizante COVID-19</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Limpieza de Consorcios</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Facility Services, Mantenimiento de Edificios, Reparaciones, Pintura, etc.</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Movimiento de Documentación Interna y Externa</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Mantenimiento de Espacios Verdes, Corte de Pasto</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Finales de Obras (Solo con la contratación del servicio de Limpieza y Mantenimiento)</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Lavado de Vidrios en Altura. Tarea realizada con personal propio</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Lavado de Alfombras</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Limpieza de Tanques de Agua Potable</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Limpieza Mecánica de Pisos y Terminado en Cera</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Provisión de Insumos de Tocador</a></li>
+            <li><a class="servicios-link servicios-link-visited" href="#">Provisión de Aromatizadores y Desodorizadores</a></li>
         </ul>
     </section>
-
-    <!-- Sección de Quiénes nos eligen -->
-    <section class="container-servicios container-galeria">
-        <h1 class="container-servicios h1">Nuestros Clientes</h1>
-        <div class="row row-cols-1 row-cols-md-4 mt-1 g-4">
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                        <img src="marcas-logo-irwin.jpg" alt="Imagen 1" class="card-img-top" />
-                    </a>
-                </div>
-            </div>
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                        <img src="eeee.png" alt="Imagen 2" class="card-img-top" />
-                    </a>
-                </div>
-            </div>
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                        <img src="descarga.png" alt="Imagen 3" class="card-img-top" />
-                    </a>
-                </div>
-            </div>
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                        <img src="Craftsman-logo.jpg" alt="Imagen 4" class="card-img-top" />
-                    </a>
-                </div>
-            </div>
-            <!-- Agrega más elementos aquí -->
-        </div>
-    </section>
-
 </body>
 
 </html>

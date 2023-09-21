@@ -15,57 +15,24 @@
             echo '<script>alert("Se elimino correctamente");</script>';
         }
     }
-
 ?>
 
 <div class="container shadow p-5 justify-content-center bg-dark-subtle">
 
     <!-- Titulo de la vista -->
-    <h1 class="text-center">Contenido en "Nosotros"</h1>
+    <h1 class="text-center">Imagenes del Carrusel</h1>
     <!-- Titulo de la vista -->
     <!-- Boton del navbar lateral -->
-    <?
-    foreach($dtpub as $rows):
-    if($rows["Seccion"] != "Mision")
-    {
-    ?>
-    <a class="btn btn-primary btn-lg d-relative m-4" href="index.php?page=EdicionMision">
-        Agregar Misión
-    </a>
-    <?
-        }
-    endforeach;
-
-    foreach($dtpub as $rows):
-    if(str_contains($rows["Seccion"],"Vision"))
-    {
-    ?>
-    <a class="btn btn-primary btn-lg d-relative m-4" href="index.php?page=EdicionVision">
-        Agregar Vision
-    </a>
-    <?
-    }
-    endforeach;
-
-    foreach($dtpub as $rows):
-    if(str_contains($rows["Seccion"],"Valores"))
-    {
-    ?>
-    <a class="btn btn-primary btn-lg d-relative m-4" href="index.php?page=EdicionValores">
-        Agregar Valores
-    </a>
-    <?
-    }
-    endforeach;
-    ?>
+    <a class="btn btn-primary btn-lg d-relative m-4" href="index.php?page=EdicionImgCarrusel">
+        Agregar publicacion
+</a>
     <!-- Boton del navbar lateral -->
 
     <div class="container mt-3 p-3 bg-white overflow-auto table-scroll rounded" style="max-height:600px;">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <?php
                 foreach($dtpub as $rows):
-                    if($rows["Seccion"] === "Mision" || $rows["Seccion"] === "Vision" || $rows["Seccion"] === "Valores")
-                    {
+                    if($rows['Seccion'] === "ImagenesCarrusel"){
             ?>
             <div class="col">
                 <div class="card h-100">
@@ -79,7 +46,7 @@
                             </a>
                         </div>
                         <div class="d-inline-flex">
-                            <a href="index.php?page=Publicaciones&Id=<?php echo $rows['IdPublic']?>&actionpub=delete&Seccion=<?php echo $Seccion?>" class="btn btn-danger btn-sm">
+                            <a href="index.php?page=ImgCarrusel&Id=<?php echo $rows['IdPublic']?>&actionpub=delete&Seccion=<?php echo $Seccion?>" class="btn btn-danger btn-sm">
                                 Eliminar
                             </a>
                         </div>

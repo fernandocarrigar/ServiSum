@@ -52,8 +52,7 @@ Create Table Publicaciones (
     Principal   varchar(500),
     Secundario  varchar(500),
     IdArchivo   int(10),
-PRIMARY KEY (IdPublic),
-CONSTRAINT fk_Publicaciones_Archivos FOREIGN KEY (IdArchivo) REFERENCES Archivos(IdArchivo)
+PRIMARY KEY (IdPublic)
 );
 
 Create Table Roles(

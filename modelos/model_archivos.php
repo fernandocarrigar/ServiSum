@@ -73,7 +73,7 @@ if((!empty($_GET['actionfile'])) && (isset($_GET['actionfile']))) {
                 unlink($rtfile);
             }
         }else{
-            header('Location: index.php?pageEdicionPagina&Id='. $Id .'');
+            header('Location: index.php?page=EdicionImgCarrusel&Id='. $Id .'');
         }
     }
 }

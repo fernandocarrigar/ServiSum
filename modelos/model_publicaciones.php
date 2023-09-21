@@ -46,18 +46,30 @@ if((!empty($_GET['actionpub'])) && (isset($_GET['actionpub']))) {
     $action = $_GET['actionpub'];
     if($action === 'insert') {
         // COMPROBAMOS QUE TODOS LOS ARCHIVOS HAYAN SIDO CORRECTOS
-        if($arch == 0)  {
-            header('Location: index.php?page=EdicionPagina&form='. $Seccion .'&Id= '. $Id .'');
+        if(!empty($_FILES['Archivo'])){
+            if($arch == 0)  {
+                header('Location: index.php?page=EdicionMision&form='. $Seccion .'&Id= '. $Id .'');
+            }else{
+                $publicacion->values[] = "'".$_POST['Seccion']."'";
+                $publicacion->values[] = "'".$_POST['Principal']."'";
+                $publicacion->values[] = "'".$_POST['Secundario']."'";
+                $publicacion->values[] = $idfile;
+    
+                $publicacion->insertPub();
+    
+                echo '<script>location.replace("index.php?page=PublicacionesNosotros&ins=Ok");</script>';
+            }
         }else{
             $publicacion->values[] = "'".$_POST['Seccion']."'";
             $publicacion->values[] = "'".$_POST['Principal']."'";
             $publicacion->values[] = "'".$_POST['Secundario']."'";
-            $publicacion->values[] = $idfile;
+            $publicacion->values[] = 0;
 
             $publicacion->insertPub();
 
-            echo '<script>location.replace("index.php?page=Publicaciones&ins=Ok");</script>';
+            echo '<script>location.replace("index.php?page=PublicacionesNosotros&ins=Ok");</script>';
         }
+
     }else if($action === 'update'){
         
         foreach($dtpubwhere as $rowid):

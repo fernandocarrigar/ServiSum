@@ -17,13 +17,10 @@
         <div class="logo">
             <img src="tu-logo.png" alt="Logo de tu sitio web">
         </div>
-        <div class="mobile-menu-toggle">
-            <i class="fa fa-bars"></i>
-        </div>
         <ul class="custom-navbar-list">
-            <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Inicio</a></li>
-            <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Servicios</a></li>
-            <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Nosotros</a></li>
+            <li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php">Inicio</a></li>
+            <li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=Servicios">Servicios</a></li>
+            <li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=Nosotros">Nosotros</a></li>
             <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Nuestros Clientes</a></li>
             <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Contacto</a></li>
             <li class="custom-navbar-item dropdown">
@@ -31,8 +28,8 @@
                     Publicaciones
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="index.php?page=Publicaciones">Imagenes de Carrusel</a></li>
-                    <li><a class="dropdown-item" href="index.php?page=PublicaiconesNosotros">Mision, Vision y Valores</a></li>
+                    <li><a class="dropdown-item" href="index.php?page=ImgCarrusel">Imagenes de Carrusel</a></li>
+                    <li><a class="dropdown-item" href="index.php?page=PublicacionesNosotros">Mision, Vision y Valores</a></li>
                 </ul>
 
             </li>
