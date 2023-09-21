@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu Título Aquí</title>
+    <!-- Agrega las referencias a Bootstrap 5 CSS y JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,8 +17,9 @@
             padding: 0;
         }
 
-        /* Estilo para la sección de Misión, Visión y Valores */
         .container-mision-vision-valores {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
@@ -38,19 +43,14 @@
         .mvv-item h2 {
             color: #007BFF;
             position: relative;
-            /* Añadido para la posición relativa */
         }
 
-        /* Línea decorativa debajo de los headings */
         .mvv-item h2::after {
             content: "";
             position: absolute;
             width: 100%;
-            /* Ancho del 100% del card */
             height: 2px;
-            /* Grosor de la línea */
             background-color: #007BFF;
-            /* Color de la línea */
             bottom: 0;
             left: 0;
             transform: scaleX(0);
@@ -63,7 +63,6 @@
             transform-origin: left;
         }
 
-        /* Ocultar el párrafo por defecto y aplicar una transición suave */
         .mvv-paragraph {
             max-height: 0;
             overflow: hidden;
@@ -72,17 +71,14 @@
             text-align: justify;
         }
 
-        /* Mostrar el párrafo al hacer hover */
         .mvv-item:hover .mvv-paragraph {
             max-height: 1000px;
             opacity: 1;
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
         }
 
-        /* Estilo para la sección de Servicios */
         .container-servicios {
-            max-width: 800px;
-            /* Ancho del contenedor ajustado */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -109,7 +105,6 @@
             margin-bottom: 10px;
         }
 
-        /* Clases personalizadas para los enlaces con el prefijo "servicios" */
         .servicios-link {
             text-decoration: none;
             color: #000;
@@ -124,6 +119,61 @@
         .servicios-link:hover {
             text-decoration: underline;
         }
+
+        .container-quienes-nos-eliges {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-height: 600px;
+        }
+
+        .carousel-container img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .carousel-container:hover .carousel-control-prev,
+        .carousel-container:hover .carousel-control-next {
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -132,21 +182,18 @@
     <section class="container-mision-vision-valores">
         <div class="mvv-item">
             <h2>Misión</h2>
-            <!-- Aquí se mostrará la Misión obtenida dinámicamente con PHP -->
             <p class="mvv-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus aliquam sed est veritatis? Sint sed, quod dolores inventore impedit voluptatibus reprehenderit corporis voluptate beatae tenetur a dolore distinctio maiores quos.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolores nobis rerum dolorum, iste minus voluptatem pariatur unde incidunt, modi reprehenderit? Mollitia, quam enim cum fuga corrupti dicta numquam expedita.
             </p>
         </div>
         <div class="mvv-item">
             <h2>Visión</h2>
-            <!-- Aquí se mostrará la Visión obtenida dinámicamente con PHP -->
             <p class="mvv-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut molestiae exercitationem in cupiditate, earum eos accusantium eius tempora neque culpa esse incidunt, ullam placeat maiores sequi perspiciatis quod quidem optio.
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perspiciatis, unde distinctio cum perferendis vitae minus saepe vel nesciunt! Cupiditate adipisci neque ratione alias accusamus laborum veniam ab itaque ducimus.
             </p>
         </div>
         <div class="mvv-item">
             <h2>Valores</h2>
-            <!-- Aquí se mostrarán los Valores obtenidos dinámicamente con PHP -->
             <p class="mvv-paragraph">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque deserunt ipsa vero doloremque dicta, animi corporis quod alias eius laudantium temporibus. Fugiat, perspiciatis libero. Ipsam, repellat. Animi quis ipsa possimus.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sapiente odio optio impedit sint sequi vel explicabo eos id in est ipsum, qui quo, provident fugit et accusamus quas cumque!
             </p>
@@ -172,6 +219,43 @@
             <li><a class="servicios-link servicios-link-visited" href="#">Provisión de Aromatizadores y Desodorizadores</a></li>
         </ul>
     </section>
+
+    <!-- Sección de Quiénes nos eligen -->
+    <section class="container-servicios container-galeria">
+        <h1 class="container-servicios h1">Nuestros Clientes</h1>
+        <div class="row row-cols-1 row-cols-md-4 mt-1 g-4">
+            <div class="col mb-4 pb-0">
+                <div class="card hv-card">
+                    <a href="#">
+                        <img src="marcas-logo-irwin.jpg" alt="Imagen 1" class="card-img-top" />
+                    </a>
+                </div>
+            </div>
+            <div class="col mb-4 pb-0">
+                <div class="card hv-card">
+                    <a href="#">
+                        <img src="eeee.png" alt="Imagen 2" class="card-img-top" />
+                    </a>
+                </div>
+            </div>
+            <div class="col mb-4 pb-0">
+                <div class="card hv-card">
+                    <a href="#">
+                        <img src="descarga.png" alt="Imagen 3" class="card-img-top" />
+                    </a>
+                </div>
+            </div>
+            <div class="col mb-4 pb-0">
+                <div class="card hv-card">
+                    <a href="#">
+                        <img src="Craftsman-logo.jpg" alt="Imagen 4" class="card-img-top" />
+                    </a>
+                </div>
+            </div>
+            <!-- Agrega más elementos aquí -->
+        </div>
+    </section>
+
 </body>
 
 </html>
