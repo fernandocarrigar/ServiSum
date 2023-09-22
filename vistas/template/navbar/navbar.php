@@ -41,5 +41,5 @@
         <p>Contenido de prueba</p>
     </div> -->
 
-<div class="mt-5">
-<main role="main" class="p-0">
+    <div class="mt-5">
+        <main role="main" class="p-0">
