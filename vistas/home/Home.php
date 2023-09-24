@@ -10,6 +10,7 @@
     <!-- Agrega Font Awesome para íconos animados -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
+        /* Estilos globales */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -17,6 +18,7 @@
             padding: 0;
         }
 
+        /* Estilos para la sección de Misión, Visión y Valores */
         .container-mision-vision-valores {
             max-width: 1200px;
             margin: 0 auto;
@@ -106,6 +108,7 @@
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
         }
 
+        /* Estilos para la sección de Servicios */
         .container-servicios {
             max-width: 1200px;
             margin: 0 auto;
@@ -138,6 +141,79 @@
             color: #000;
             font-weight: bold;
         }
+
+        /* Estilos responsivos para la sección de Misión, Visión y Valores en tamaños pequeños */
+        @media (max-width: 768px) {
+            .container-mision-vision-valores {
+                grid-template-columns: 1fr;
+                /* Cambia a una columna en tamaños más pequeños */
+                gap: 10px;
+                text-align: center;
+                /* Centra los elementos en tamaños pequeños */
+            }
+
+            .mvv-item {
+                text-align: center;
+                /* Alinea el contenido a la izquierda en tamaños más pequeños */
+                padding: 20px;
+            }
+
+            .mvv-item:hover {
+                transform: translateY(0);
+                /* Elimina el efecto hover en tamaños pequeños */
+            }
+
+            .mvv-item i {
+                transform: none;
+                /* Restaura la transformación */
+            }
+
+            .mvv-item h2 {
+                margin-top: 10px;
+                /* Ajusta el margen superior */
+                transform: none;
+                /* Restaura la transformación */
+                position: relative;
+            }
+
+            .mvv-item h2::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #007BFF;
+                bottom: -10px;
+                /* Controla la posición de la línea debajo del heading */
+                left: 0;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .mvv-item:hover h2::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+
+            .mvv-paragraph {
+                max-height: 0;
+                /* Oculta el párrafo en tamaños pequeños por defecto */
+                overflow: hidden;
+                opacity: 0;
+                transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+                text-align: justify;
+                margin-top: -5px;
+                padding-bottom: 10px;
+                margin-bottom: 0;
+            }
+
+            .mvv-item:hover .mvv-paragraph {
+                max-height: 1000px;
+                /* Muestra el párrafo al hacer hover en tamaños pequeños */
+                opacity: 1;
+                transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            }
+        }
     </style>
 </head>
 
@@ -147,22 +223,34 @@
         <div class="mvv-item">
             <i class="fas fa-bullseye"></i>
             <h2>Misión</h2>
-            <p class="mvv-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, rerum magni consequatur voluptatem eveniet harum enim eos praesentium fugiat reprehenderit facere facilis ad debitis obcaecati commodi inventore distinctio consequuntur minima?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda doloribus eligendi obcaecati, quas sunt at suscipit cum id veritatis ad itaque ipsum tempora dolor repudiandae nisi doloremque consectetur vel.
+            <p class="mvv-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, rerum magni consequatur
+                voluptatem eveniet harum enim eos praesentium fugiat reprehenderit facere facilis ad debitis obcaecati
+                commodi inventore distinctio consequuntur minima?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda doloribus eligendi obcaecati,
+                quas sunt at suscipit cum id veritatis ad itaque ipsum tempora dolor repudiandae nisi doloremque
+                consectetur vel.
             </p>
         </div>
         <div class="mvv-item">
             <i class="fas fa-eye"></i>
             <h2>Visión</h2>
-            <p class="mvv-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, rerum magni consequatur voluptatem eveniet harum enim eos praesentium fugiat reprehenderit facere facilis ad debitis obcaecati commodi inventore distinctio consequuntur minima?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda doloribus eligendi obcaecati, quas sunt at suscipit cum id veritatis ad itaque ipsum tempora dolor repudiandae nisi doloremque consectetur vel.
+            <p class="mvv-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, rerum magni consequatur
+                voluptatem eveniet harum enim eos praesentium fugiat reprehenderit facere facilis ad debitis obcaecati
+                commodi inventore distinctio consequuntur minima?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda doloribus eligendi obcaecati,
+                quas sunt at suscipit cum id veritatis ad itaque ipsum tempora dolor repudiandae nisi doloremque
+                consectetur vel.
             </p>
         </div>
         <div class="mvv-item">
             <i class="fas fa-heart"></i>
             <h2>Valores</h2>
-            <p class="mvv-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, rerum magni consequatur voluptatem eveniet harum enim eos praesentium fugiat reprehenderit facere facilis ad debitis obcaecati commodi inventore distinctio consequuntur minima?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda doloribus eligendi obcaecati, quas sunt at suscipit cum id veritatis ad itaque ipsum tempora dolor repudiandae nisi doloremque consectetur vel.
+            <p class="mvv-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, rerum magni consequatur
+                voluptatem eveniet harum enim eos praesentium fugiat reprehenderit facere facilis ad debitis obcaecati
+                commodi inventore distinctio consequuntur minima?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda doloribus eligendi obcaecati,
+                quas sunt at suscipit cum id veritatis ad itaque ipsum tempora dolor repudiandae nisi doloremque
+                consectetur vel.
             </p>
         </div>
     </section>

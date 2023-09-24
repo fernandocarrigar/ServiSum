@@ -15,8 +15,9 @@
 <body>
     <nav class="custom-navbar">
         <div class="logo">
-            <img src="tu-logo.png" alt="Logo de tu sitio web">
+            <img class="rounded" src="modern-company-logo-design-vector.jpg" alt="Logo de tu sitio web" style="height: 100%; width: auto;">
         </div>
+
         <ul class="custom-navbar-list">
             <li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php">Inicio</a></li>
             <li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=Servicios">Servicios</a></li>
