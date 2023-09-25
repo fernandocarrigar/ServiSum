@@ -12,29 +12,34 @@ Descripcion varchar(100),
 PRIMARY KEY (IdArchivo)
 );
 
-Create Table Servicios (
-IdServicio     int(10) NOT NULL AUTO_INCREMENT, 
-Servicio      varchar(250) NOT NULL,
-Archivo     longblob NOT NULL,
-MimeType    varchar(50) NOT NULL,
-PRIMARY KEY (IdServicio)
+
+Create Table Servicios(
+    IdServicio   int(10) AUTO_INCREMENT,
+    Servicio varchar(200) NOT NULL,
+    Descripcion varchar(1000),
+    PRIMARY KEY (IdServicio)
 );
 
--- Create Table TipoHerramientas(
---     IdHerramienta   int(10) AUTO_INCREMENT,
---     TipoHerramienta varchar(100) NOT NULL,
---     PRIMARY KEY (IdHerramienta)
+-- Create Table Herramientas (
+--     IdHerramienta     int(10) NOT NULL AUTO_INCREMENT,
+--     Descripcion     varchar(250) NOT NULL,
+--     Archivo         longblob NOT NULL,
+--     MimeType        varchar(50) NOT NULL,
+--     IdServicio         int(10) NOT NULL,
+-- -- IdHerramienta   int(10) NOT NULL,
+-- PRIMARY KEY (IdHerramienta),
+-- CONSTRAINT fk_Herramientas_Servicios FOREIGN KEY (IdServicio) REFERENCES Servicios(IdServicio)
 -- );
 
-Create Table Herramientas (
-    IdHerramienta     int(10) NOT NULL AUTO_INCREMENT,
+Create Table Evidencias (
+    IdEvidencia     int(10) NOT NULL AUTO_INCREMENT,
     Descripcion     varchar(250) NOT NULL,
     Archivo         longblob NOT NULL,
     MimeType        varchar(50) NOT NULL,
     IdServicio         int(10) NOT NULL,
 -- IdHerramienta   int(10) NOT NULL,
-PRIMARY KEY (IdHerramienta),
-CONSTRAINT fk_Herramientas_Servicios FOREIGN KEY (IdServicio) REFERENCES Servicios(IdServicio)
+PRIMARY KEY (IdEvidencia),
+CONSTRAINT fk_Evidencias_Servicios FOREIGN KEY (IdServicio) REFERENCES Servicios(IdServicio)
 );
 
 -- Create Table Sucursales(
@@ -93,14 +98,14 @@ Archivos as a
 ON p.IdArchivo = a.IdArchivo
 ORDER by IdPublic DESC;
 
-Create View view_Herramientas as
-SELECT  h.IdHerramienta, h.Descripcion, h.Archivo as HerramientaImg, h.MimeType as HerramientaTipoImg, h.IdServicio,
-        s.Servicio, s.Archivo as ImagenServicio, s.MimeType as TipoImgServicio
-FROM Herramientas as h
+Create View view_Servicios as
+SELECT  e.IdEvidencia, e.Descripcion, e.Archivo as EvidenciaImg, e.MimeType as EvidenciaTipoImg, e.IdServicio,
+        s.Servicio, s.Descripcion as DescripcionServicio
+FROM Evidencias as e
 LEFT JOIN
 Servicios as s
-ON h.IdServicio = s.IdServicio
+ON e.IdServicio = s.IdServicio
 -- LEFT JOIN
 -- TipoHerramientas as h
 -- ON p.IdHerramienta = h.IdHerramienta
-ORDER by IdHerramienta DESC;
+ORDER by IdEvidencia DESC;

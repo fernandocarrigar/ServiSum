@@ -92,13 +92,28 @@ class Publicacion extends Conectar
 
     public function getViewSeccion($Seccion)
     {
-        $sql = "SELECT * FROM {$this->view} WHERE Seccion LIKE '%{$Seccion}%'";
-
+        $sql = "SELECT * FROM {$this->view} WHERE Seccion = '$Seccion' ";
+        // echo $sql;
         $result = $this->db->query($sql);
         while ($row = $result->fetch_assoc()) {
             $this->field[] = $row;
         }
         return $this->field;
+        // return $result;
+        // return $row;
+    }
+
+    public function getViewCount($Seccion)
+    {
+        $sql = "SELECT COUNT(Seccion) FROM {$this->view} WHERE Seccion = '$Seccion' ";
+        // echo $sql;
+        $result = $this->db->query($sql);
+        $count = mysqli_num_rows($result);
+        return ''.$count.'';
+        // while ($row = $result->fetch_assoc()) {
+        //     $this->field[] = $row;
+        // }
+        // return $this->field;
         // return $result;
         // return $row;
     }

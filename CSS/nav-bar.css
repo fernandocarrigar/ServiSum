@@ -1,0 +1,119 @@
+/* Estilos para la barra de navegación */
+.custom-navbar {
+    background-color: #333;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    /* Establece un ancho máximo del 100% */
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    /* Centro horizontalmente */
+    align-items: center;
+    /* Centro verticalmente */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    /* Ajusta el margen izquierdo aquí si es necesario */
+    margin-right: 20px;
+    /* Agrega un margen a la derecha del logotipo */
+}
+
+.logo img {
+    max-height: 75px;
+    /* Tamaño del logo */
+    width: auto;
+}
+
+.custom-navbar-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    /* Centrar elementos horizontalmente */
+    align-items: center;
+    /* Centrar elementos verticalmente */
+}
+
+.custom-navbar-item {
+    margin: 0;
+    /* Elimina cualquier margen en los elementos */
+}
+
+.custom-navbar-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-navbar-link:hover {
+    background-color: #ff6600;
+    color: #fff;
+}
+
+.custom-navbar-link.active {
+    background-color: #ff6600;
+    color: #fff;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .custom-navbar {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 20px 0;
+        /* Añadido espacio en la parte superior e inferior */
+    }
+
+    .logo {
+        margin-right: 0;
+        /* Elimina el margen derecho en dispositivos medianos */
+        margin-bottom: 20px;
+        /* Agrega margen inferior al logo en dispositivos móviles */
+    }
+
+    .custom-navbar-list {
+        flex-direction: column;
+        align-items: center;
+        /* Centrar elementos en dispositivos móviles */
+    }
+
+    .custom-navbar-item {
+        margin: 10px 0;
+    }
+
+    .custom-navbar-link {
+        font-size: 18px;
+        /* Reducir el tamaño de fuente en dispositivos medianos */
+        padding: 8px 16px;
+        /* Ajustar el espaciado de los enlaces */
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-navbar-link {
+        font-size: 16px;
+        /* Reducir aún más el tamaño de fuente en dispositivos más pequeños */
+        padding: 6px 12px;
+        /* Ajustar el espaciado de los enlaces */
+    }
+}
+
+@media (max-width: 900px) {
+    .custom-navbar-link {
+        font-size: 14px;
+        /* Reducir el tamaño de fuente en tamaños de pantalla de 900px */
+        padding: 6px 12px;
+        /* Puedes ajustar el espaciado de los enlaces según tu preferencia */
+    }
+}

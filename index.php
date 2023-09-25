@@ -11,6 +11,15 @@ if ((!empty($_GET['page']))  ||  (isset($_GET['page']))) {
 }
 
 switch ($page) {
+    case "EdicionEvidencias":
+        include_once("vistas/users/admin/EdicionEvidencias.php");
+        break;
+    case "EvidenciasServicios":
+        include_once("vistas/users/admin/Evidencias.php");
+        break;
+    case "EdicionContacto":
+        include_once("vistas/users/admin/EdicionFooter.php");
+        break;
     case "EdicionImgCarrusel":
         include_once("vistas/users/admin/EdicionImgCarrusel.php");
         break;
@@ -28,6 +37,12 @@ switch ($page) {
         break;
     case "ImgCarrusel":
         include_once("vistas/users/admin/ImgCarrusel.php");
+        break;
+    case "EdicionServicios":
+        include_once("vistas/users/admin/EdicionServicios.php");
+        break;
+    case "ServiciosAdmin":
+        include_once("vistas/users/admin/ServiciosAdmin.php");
         break;
     case "Servicios":
         include_once("vistas/users/clientes/Servicios.php");

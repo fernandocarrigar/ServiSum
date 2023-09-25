@@ -1,3 +1,7 @@
+<?php
+    require_once('modelos/model_contactos.php');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -75,35 +79,77 @@
                 <h2 class="card-title text-center">Editar Footer</h2>
             </div>
             <div class="card-body rounded">
-                <form>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo Electrónico:</label>
-                        <input type="email" class="form-control" id="email" required>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="state" class="form-label">Estado:</label>
-                            <input type="text" class="form-control" id="state" required>
+                <?php
+                if ((!empty($dtcontactowhere)) && (isset($dtcontactowhere))) {
+                    foreach($dtcontactowhere as $row):
+                    ?>
+                    <form method="post" action="index.php?page=EdicionContacto&actioncon=update&IdC=<?php echo $IdC ?>"
+                        enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico:</label>
+                            <input name="Correo" type="email" class="form-control" id="email" value="<?php echo $row["Correo"] ?>" required>
                         </div>
-                        <div class="col">
-                            <label for="city" class="form-label">Ciudad:</label>
-                            <input type="text" class="form-control" id="city" required>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="state" class="form-label">Estado:</label>
+                                <input name="Estado" type="text" class="form-control" id="state" value="<?php echo $row["Estado"] ?>" required>
+                            </div>
+                            <div class="col">
+                                <label for="city" class="form-label">Ciudad:</label>
+                                <input name="Ciudad" type="text" class="form-control" id="city" value="<?php echo $row["Ciudad"] ?>" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="zipcode" class="form-label">Código Postal:</label>
-                            <input type="text" class="form-control" id="zipcode" required>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="zipcode" class="form-label">Código Postal:</label>
+                                <input name="CodigoP" type="text" class="form-control" id="zipcode" value="<?php echo $row["CodigoP"] ?>" required>
+                            </div>
+                            <div class="col">
+                                <label for="phone" class="form-label">Teléfono:</label>
+                                <input name="Telefono" type="tel" class="form-control" id="phone" value="<?php echo $row["Telefono"] ?>" required>
+                            </div>
                         </div>
-                        <div class="col">
-                            <label for="phone" class="form-label">Teléfono:</label>
-                            <input type="tel" class="form-control" id="phone" required>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary rounded">Enviar</button>
                         </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary rounded">Enviar</button>
-                    </div>
-                </form>
+                        <?php
+                    endforeach;
+                } else {
+                    ?>
+                        <form method="post" action="index.php?page=EdicionContacto&actioncon=insert"
+                            enctype="multipart/form-data">
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico:</label>
+                                <input name="Correo" type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="state" class="form-label">Estado:</label>
+                                    <input name="Estado" type="text" class="form-control" id="state" required>
+                                </div>
+                                <div class="col">
+                                    <label for="city" class="form-label">Ciudad:</label>
+                                    <input name="Ciudad" type="text" class="form-control" id="city" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="zipcode" class="form-label">Código Postal:</label>
+                                    <input name="CodigoP" type="text" class="form-control" id="zipcode" required>
+                                </div>
+                                <div class="col">
+                                    <label for="phone" class="form-label">Teléfono:</label>
+                                    <input name="Telefono" type="tel" class="form-control" id="phone" required>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary rounded">Enviar</button>
+                            </div>
+                            <?php
+                }
+                ?>
+                    </form>
             </div>
         </div>
     </div>

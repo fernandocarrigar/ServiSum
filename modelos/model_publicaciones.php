@@ -3,7 +3,7 @@
 require_once('recursos/config/db.php');
 require_once('controladores/controller_publicaciones.php');
 
-$publicacion = new Publicacion ();
+$publicacion = new Publicacion();
 $publicacion->setTable("publicaciones");
 $publicacion->setView('view_publicaciones');
 
@@ -14,12 +14,12 @@ $publicacion->setColumns('Principal');
 $publicacion->setColumns('Secundario');
 $publicacion->setColumns('IdArchivo');
 
-$fch_r = date('Y-m-d');     //OBTIENE LA FECHA ACTUAL
+$fch_r = date('Y-m-d'); //OBTIENE LA FECHA ACTUAL
 
-if ((!empty($_GET['Id'])) && (isset($_GET['Id'])))  {
+if ((!empty($_GET['Id'])) && (isset($_GET['Id']))) {
     $Id = $_GET['Id'];
     $dtpubwhere = $publicacion->getWhere($Id);
-}else{
+} else {
     $Id = null;
     $dtpubwhere = null;
 }
@@ -27,42 +27,45 @@ if ((!empty($_GET['Id'])) && (isset($_GET['Id'])))  {
 $dtpub = $publicacion->getView();
 
 $dtpubSeccion = $publicacion->getViewSeccion("ImagenesCarrusel");
+// $dtpubMision = $publicacion->getViewCount("Mision");
+// $dtpubVision = $publicacion->getViewCount("Vision");
+// $dtpubValores = $publicacion->getViewCount("Valores");
 
-if ((!empty($_POST['Seccion'])) && (isset($_POST['Seccion'])))  {
+if ((!empty($_POST['Seccion'])) && (isset($_POST['Seccion']))) {
     $Seccion = $_POST['Seccion'];
     $dtSecpub = $publicacion->getWhereSeccion($Seccion);
-}else{
+} else {
     $Seccion = null;
 }
 
-if((!empty($_GET["form"])) && (isset($_GET["form"]))){
+if ((!empty($_GET["form"])) && (isset($_GET["form"]))) {
     $form = $_GET["form"];
-}else{
+} else {
     $form = null;
 }
 
 // DEFINE LA ACCION A REALIZAR: INSERT, UPDATE Y DELETE
-if((!empty($_GET['actionpub'])) && (isset($_GET['actionpub']))) {
+if ((!empty($_GET['actionpub'])) && (isset($_GET['actionpub']))) {
     $action = $_GET['actionpub'];
-    if($action === 'insert') {
+    if ($action === 'insert') {
         // COMPROBAMOS QUE TODOS LOS ARCHIVOS HAYAN SIDO CORRECTOS
-        if(!empty($_FILES['Archivo'])){
-            if($arch == 0)  {
-                header('Location: index.php?page=EdicionMision&form='. $Seccion .'&Id= '. $Id .'');
-            }else{
-                $publicacion->values[] = "'".$_POST['Seccion']."'";
-                $publicacion->values[] = "'".$_POST['Principal']."'";
-                $publicacion->values[] = "'".$_POST['Secundario']."'";
+        if (!empty($_FILES['Archivo'])) {
+            if ($arch == 0) {
+                header('Location: index.php?page=EdicionImgCarrusel&form=' . $Seccion . '&Id= ' . $Id . '');
+            } else {
+                $publicacion->values[] = "'" . $_POST['Seccion'] . "'";
+                $publicacion->values[] = "'" . $_POST['Principal'] . "'";
+                $publicacion->values[] = "'" . $_POST['Secundario'] . "'";
                 $publicacion->values[] = $idfile;
-    
+
                 $publicacion->insertPub();
-    
-                echo '<script>location.replace("index.php?page=PublicacionesNosotros&ins=Ok");</script>';
+
+                echo '<script>location.replace("index.php?page=ImgCarrusel&ins=Ok");</script>';
             }
-        }else{
-            $publicacion->values[] = "'".$_POST['Seccion']."'";
-            $publicacion->values[] = "'".$_POST['Principal']."'";
-            $publicacion->values[] = "'".$_POST['Secundario']."'";
+        } else {
+            $publicacion->values[] = "'" . $_POST['Seccion'] . "'";
+            $publicacion->values[] = "'" . $_POST['Principal'] . "'";
+            $publicacion->values[] = "'" . $_POST['Secundario'] . "'";
             $publicacion->values[] = 0;
 
             $publicacion->insertPub();
@@ -70,70 +73,87 @@ if((!empty($_GET['actionpub'])) && (isset($_GET['actionpub']))) {
             echo '<script>location.replace("index.php?page=PublicacionesNosotros&ins=Ok");</script>';
         }
 
-    }else if($action === 'update'){
-        
-        foreach($dtpubwhere as $rowid):
-            $Idarchivo = $rowid['IdArchivo'];
-        endforeach;
+    } else if ($action === 'update') {
 
-        $archivoname = $_FILES['Archivo']['name'];
-        $archivotype = $_FILES['Archivo']['type'];
-        $archivosize = $_FILES['Archivo']['size'];
-        $archivofile = $_FILES['Archivo']['tmp_name'];
-        
-        if((!empty($archivofile)) && (isset($archivofile))){
+        if (!empty($_FILES['Archivo'])) {
 
-            $upload = new ArchivosModel();
-            $arch = $upload->uploadFile($archivoname,$archivotype,$archivosize,$archivofile);
+            foreach ($dtpubwhere as $rowid):
+                $Idarchivo = $rowid['IdArchivo'];
+            endforeach;
 
-            // COMPROBAMOS QUE TODOS LOS ARCHIVOS HAYAN SIDO CORRECTOS
-            if($arch == 0)  {
-                header('Location: index.php?page=EdicionPagina&form='. $form .'');
-            }else{
+            $archivoname = $_FILES['Archivo']['name'];
+            $archivotype = $_FILES['Archivo']['type'];
+            $archivosize = $_FILES['Archivo']['size'];
+            $archivofile = $_FILES['Archivo']['tmp_name'];
 
-                //  MOVEMOS EL ARCHIVO A UNA RUTA DEL SERVIDOR LOCAL DE MANERA TEMPORAL
+            if ((!empty($archivofile)) && (isset($archivofile))) {
 
-                $dir_file = $dir_doc . basename($archivoname);   //  ATRAPA EL ARCHIVO
-                $typefile = strtolower(pathinfo($dir_file,PATHINFO_EXTENSION)); //  OBTIENE LA INFORMACION DEL ARCHIVO COMO: RUTA, NOMBRE Y EXTENSION
+                $upload = new ArchivosModel();
+                $arch = $upload->uploadFile($archivoname, $archivotype, $archivosize, $archivofile);
 
-                $rtfile = $dir_doc . "Archivo_" . $archivoname . $typefile; 
-                move_uploaded_file($archivofile,$rtfile);
+                // COMPROBAMOS QUE TODOS LOS ARCHIVOS HAYAN SIDO CORRECTOS
+                if ($arch == 0) {
+                    header('Location: index.php?page=EdicionImgCarrusel&form=' . $form . '');
+                } else {
 
-                $gestor = fopen($rtfile, "r");
-                $filesize = filesize($rtfile);
-                $content = fread($gestor, $filesize);
-                $dtfile = addslashes($content);
-                fclose($gestor);
+                    //  MOVEMOS EL ARCHIVO A UNA RUTA DEL SERVIDOR LOCAL DE MANERA TEMPORAL
 
-                $filetype = mime_content_type($rtfile);
+                    $dir_file = $dir_doc . basename($archivoname); //  ATRAPA EL ARCHIVO
+                    $typefile = strtolower(pathinfo($dir_file, PATHINFO_EXTENSION)); //  OBTIENE LA INFORMACION DEL ARCHIVO COMO: RUTA, NOMBRE Y EXTENSION
 
-                // INSERTAMOS EL ARCHIVO EN LA BASE DE DATOS 
-                $archivo->updateArchivo($Idarchivo,$dtfile,$filetype,$archivoname);
+                    $rtfile = $dir_doc . "Archivo_" . $archivoname . $typefile;
+                    move_uploaded_file($archivofile, $rtfile);
 
-                // BORRA LOS ARCHIVOS QUE SE GUARDARON TEMPORALMENTE EN EL SERVIDOR
-                unlink($rtfile);
+                    $gestor = fopen($rtfile, "r");
+                    $filesize = filesize($rtfile);
+                    $content = fread($gestor, $filesize);
+                    $dtfile = addslashes($content);
+                    fclose($gestor);
 
-                echo '<script>location.replace("index.php?page=Publicaciones&upd=Ok");</script>';
+                    $filetype = mime_content_type($rtfile);
+
+                    // INSERTAMOS EL ARCHIVO EN LA BASE DE DATOS 
+                    $archivo->updateArchivo($Idarchivo, $dtfile, $filetype, $archivoname);
+
+                    // BORRA LOS ARCHIVOS QUE SE GUARDARON TEMPORALMENTE EN EL SERVIDOR
+                    unlink($rtfile);
+
+                    echo '<script>location.replace("index.php?page=ImgCarrusel&upd=Ok");</script>';
+                }
             }
+
+            $publicacion->values[] = "'" . $_POST['Seccion'] . "'";
+            $publicacion->values[] = "'" . $_POST['Principal'] . "'";
+            $publicacion->values[] = "'" . $_POST['Secundario'] . "'";
+            $publicacion->values[] = $Idarchivo;
+            $publicacion->updatePub($Id);
+        
+        } else {
+            $publicacion->values[] = "'" . $_POST['Seccion'] . "'";
+            $publicacion->values[] = "'" . $_POST['Principal'] . "'";
+            $publicacion->values[] = "'" . $_POST['Secundario'] . "'";
+            $publicacion->values[] = 0;
+
+            $publicacion->updatePub($Id);
+
+            echo '<script>location.replace("index.php?page=PublicacionesNosotros&ins=Ok");</script>';
         }
 
-        $publicacion->values[] = "'".$_POST['Seccion']."'";
-        $publicacion->values[] = "'".$_POST['Principal']."'";
-        $publicacion->values[] = "'".$_POST['Secundario']."'";
-        $publicacion->values[] = $Idarchivo;
-        $publicacion->updatePub($Id);
-
-    }else if($action === 'delete')   {
-        foreach($dtpubwhere as $row):
+    } else if ($action === 'delete') {
+        foreach ($dtpubwhere as $row):
             $Idarchdel = $row['IdArchivo'];
         endforeach;
 
         $publicacion->deletePub($Id);
-        $archivo->deleteArchivo($Idarchdel);
+        if($Idarchdel != 0){
+            $archivo->deleteArchivo($Idarchdel);
 
-        echo '<script>location.replace("index.php?page=Publicaciones&del=Ok");</script>';
+            echo '<script>location.replace("index.php?page=ImgCarrusel&del=Ok");</script>';
+        }
 
-    } 
+        echo '<script>location.replace("index.php?page=PublicacionesNosotros&del=Ok");</script>';
+
+    }
 }
 
 

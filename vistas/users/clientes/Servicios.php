@@ -1,3 +1,10 @@
+<?php
+
+require_once("modelos/model_servicios.php");
+require_once("modelos/model_evidencias.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -143,67 +150,39 @@
     <h1>Nuestros Servicios</h1>
     <section class="gallery">
         <div class="category">
-            <h2>Lavado</h2>
-            <!-- Contenedor del carrusel -->
-            <div class="carousel-container">
-                <!-- Flechas de navegación -->
-                <div class="navigation-arrows left" id="prevButton">&#9664;</div>
-                <div class="image-carousel">
-                    <!-- Imagen 1 con descripción -->
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 1">
-                        <div class="description">Descripción del Producto 1.</div>
+            <?php
+            foreach ($dtservicio as $serv):
+                ?>
+                <h2>
+                    <?php echo $serv["Servicio"] ?>
+                </h2>
+                <!-- Contenedor del carrusel -->
+                <div class="carousel-container">
+                    <!-- Flechas de navegación -->
+                    <div class="navigation-arrows left" id="prevButton">&#9664;</div>
+                    <div class="image-carousel">
+                        <?php
+                        foreach ($dtevidencias as $row):
+                            if ($row["Servicio"] == $serv["Servicio"]) {
+                                ?>
+                                <!-- Imagen 1 con descripción -->
+                                <div class="image">
+                                    <img src="data:<?php echo $rows['EvidenciaTipoImg'] ?>;base64,<?php echo (base64_encode($rows['EvidenciaImg'])) ?>"
+                                        alt="Producto 1">
+                                    <div class="description">
+                                        <?php echo $row["Descripcion"] ?>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        endforeach;
+                        ?>
                     </div>
-                    <!-- Repite este patrón para más imágenes -->
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 2">
-                        <div class="description">Descripción del Producto 2.</div>
-                    </div>
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 3">
-                        <div class="description">Descripción del Producto 3.</div>
-                    </div>
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 4">
-                        <div class="description">Descripción del Producto 4.</div>
-                    </div>
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 5">
-                        <div class="description">Descripción del Producto 5.</div>
-                    </div>
-                    <!-- Repite este patrón para más imágenes -->
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 6">
-                        <div class="description">Descripción del Producto 6.</div>
-                    </div>
-                    <!-- Puedes agregar más imágenes aquí -->
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 7">
-                        <div class="description">Descripción del Producto 7.</div>
-                    </div>
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 8">
-                        <div class="description">Descripción del Producto 8.</div>
-                    </div>
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 9">
-                        <div class="description">Descripción del Producto 9.</div>
-                    </div>
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 10">
-                        <div class="description">Descripción del Producto 10.</div>
-                    </div>
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 11">
-                        <div class="description">Descripción del Producto 11.</div>
-                    </div>
-                    <div class="image">
-                        <img src="descarga2.png" alt="Producto 11">
-                        <div class="description">Descripción del Producto 11.</div>
-                    </div>
+                    <div class="navigation-arrows right" id="nextButton">&#9654;</div>
                 </div>
-                <div class="navigation-arrows right" id="nextButton">&#9654;</div>
-            </div>
+                <?php
+            endforeach;
+            ?>
         </div>
     </section>
 </body>

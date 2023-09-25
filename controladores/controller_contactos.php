@@ -1,6 +1,6 @@
 <?php
 
-class Archivos extends Conectar {
+class Contactos extends Conectar {
     private $table;
     private $view;
     private $id;
@@ -47,6 +47,18 @@ class Archivos extends Conectar {
     public function getWhere($value)  {
         $this->id = $value;
         $sql = "SELECT * FROM {$this->table} WHERE {$this->pkey}={$this->id}";
+
+        $result = $this->db->query($sql);
+        while($row = $result->fetch_assoc())   {
+            $this->field[] = $row;
+        }
+        return $this->field;
+    }
+
+    public function getWhereHerramienta($value)  {
+        $this->val = $value;
+
+        $sql = "SELECT * FROM {$this->view} WHERE IdMarca='{$this->val}' ";
         // echo $sql;
         $result = $this->db->query($sql);
         while($row = $result->fetch_assoc())   {
@@ -57,6 +69,7 @@ class Archivos extends Conectar {
 
     public function getView() {
         $sql = "SELECT * FROM {$this->view}";
+
         $result = $this->db->query($sql);
         while($row = $result->fetch_assoc()) {
             $this->field[] = $row;
@@ -75,22 +88,26 @@ class Archivos extends Conectar {
         return $this->field;
     }
 
-    public function insertArchivo($file,$type,$desc) {
+    public function insertContacto($correo,$direccion,$codigo,$ciudad,$estado,$telefono) {
         $this->col = implode(",",$this->column);
 
         // echo $this->col;
         // echo $this->val;
-        $sql = "INSERT INTO {$this->table} ({$this->pkey},{$this->col}) VALUE (NULL,'$file','$type','$desc')";
+        $sql = "INSERT INTO {$this->table} ({$this->pkey},{$this->col}) VALUE (NULL,'$correo','$direccion','$codigo','$ciudad','$estado','$telefono')";
         // echo $sql;
         $this->db->query($sql);
     }
 
-    public function updateArchivo($value,$arch,$tipoa,$descrip)  {
+    public function updateContacto($value,$correo,$direccion,$codigo,$ciudad,$estado,$telefono)  {
         $this->id = $value;     //ATRAPA EL ID QUE SE USARA PARA IDENTIFICAR CUAL SE CAMBIARA
         // $this->col = implode(",",$this->columsn);
-        $this->values[] = $this->column[0] ."='". $arch ."'";
-        $this->values[] = $this->column[1] ."='". $tipoa ."'";
-        $this->values[] = $this->column[2] ."='". $descrip ."'";
+        $this->values[] = $this->column[0] ."='". $correo ."'";
+        $this->values[] = $this->column[1] ."='". $direccion ."'";
+        $this->values[] = $this->column[2] ."='". $codigo ."'";
+        $this->values[] = $this->column[3] ."='". $ciudad ."'";
+        $this->values[] = $this->column[4] ."='". $estado ."'";
+        $this->values[] = $this->column[5] ."='". $telefono ."'";
+
         $this->val = implode(",",$this->values);
 
         $sql = "UPDATE {$this->table} SET {$this->val} WHERE {$this->pkey}='{$this->id}'";
@@ -98,66 +115,11 @@ class Archivos extends Conectar {
     }
 
 
-    public function deleteArchivo($value)  {
+    public function deleteContacto($value)  {
         $this->id = $value;
         $sql = "DELETE FROM {$this->table} WHERE {$this->pkey}={$this->id}";
         $this->db->query($sql);
     }
 }
-
-
-class ArchivosModel extends Archivos {
-
-    private $conArc;
-    public  $lastidupd;
-    public  $fidUpd;
-
-    public function __construct(){
-        $conArc = new Archivos();
-        $this->lstid = $conArc->lastId();
-    }
-
-    public function uploadFile($fname,$ftype,$fsize,$file) {
-    // SUBIR ARCHIVOS
-        $dir_doc = "recursos/archivos/";
-        $uploadOk = 1;
-
-        $dir_file = $dir_doc . basename($fname);   //  ATRAPA EL ARCHIVO
-        $typefile = strtolower(pathinfo($dir_file,PATHINFO_EXTENSION)); //  OBTIENE LA INFORMACION DEL ARCHIVO COMO: RUTA, NOMBRE Y EXTENSION
-
-        //  VERIFICA EL TAMAÑO DEL ARCHIVO
-        if($fsize > 5000000) {
-            $uploadOk = 0;
-        }
-
-        //  MUEVE EL ARCHIVO AL SERVIDOR SOLO CUANDO TODOS LOS FILTROS ANTERIORES SEAN CORRECTOS
-        if ($uploadOk == 0) {
-            // $errorfile = 'Error en el tipo de archivo, deben ser "PNG, JPG ó JPEG"';
-            $errorfile = 0;
-            return $errorfile;
-        }else{
-
-            // $fch_r = date('Y-m-d');     //OBTIENE LA FECHA ACTUAL
-            
-            $gestor     =   fopen($file, "r");
-            $content    = fread($gestor, $fsize);
-            $dtarchivo  = addslashes($content);
-            fclose($gestor);
-
-            return $dtarchivo;
-        }
-    }
-
-    public function comprobarType($type) {
-        if ($type == 'image/jpg') {
-            $typeresult = ".jpg";
-            return $typeresult;
-        }else{
-            $typeresult = ".jpeg";
-            return $typeresult;
-        }
-    }
-}
-
 
 ?>

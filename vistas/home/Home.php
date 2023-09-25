@@ -1,3 +1,9 @@
+<?php
+require_once("modelos/model_publicaciones.php");
+require_once("modelos/model_servicios.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +14,7 @@
     <!-- Agrega las referencias a Bootstrap 5 CSS y JS -->
 
     <!-- Agrega Font Awesome para íconos animados -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
     <style>
         /* Estilos globales */
         body {
@@ -103,7 +109,7 @@
         }
 
         .mvv-item:hover .mvv-paragraph {
-            max-height: 1000px;
+            max-height: 200px;
             opacity: 1;
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
         }
@@ -208,7 +214,7 @@
             }
 
             .mvv-item:hover .mvv-paragraph {
-                max-height: 1000px;
+                max-height: 200px;
                 /* Muestra el párrafo al hacer hover en tamaños pequeños */
                 opacity: 1;
                 transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
@@ -223,34 +229,40 @@
         <div class="mvv-item">
             <i class="fas fa-bullseye"></i>
             <h2>Misión</h2>
-            <p class="mvv-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, rerum magni consequatur
-                voluptatem eveniet harum enim eos praesentium fugiat reprehenderit facere facilis ad debitis obcaecati
-                commodi inventore distinctio consequuntur minima?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda doloribus eligendi obcaecati,
-                quas sunt at suscipit cum id veritatis ad itaque ipsum tempora dolor repudiandae nisi doloremque
-                consectetur vel.
+            <p class="mvv-paragraph overflow-auto">
+            <?php
+                foreach($dtpub as $row):
+                    if($row["Seccion"] == "Mision"){
+                        echo $row["Secundario"];
+                    }
+                endforeach;
+            ?>
             </p>
         </div>
         <div class="mvv-item">
             <i class="fas fa-eye"></i>
             <h2>Visión</h2>
-            <p class="mvv-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, rerum magni consequatur
-                voluptatem eveniet harum enim eos praesentium fugiat reprehenderit facere facilis ad debitis obcaecati
-                commodi inventore distinctio consequuntur minima?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda doloribus eligendi obcaecati,
-                quas sunt at suscipit cum id veritatis ad itaque ipsum tempora dolor repudiandae nisi doloremque
-                consectetur vel.
+            <p class="mvv-paragraph">
+            <?php
+                foreach($dtpub as $row):
+                    if($row["Seccion"] == "Vision"){
+                        echo $row["Secundario"];
+                    }
+                endforeach;
+            ?>
             </p>
         </div>
         <div class="mvv-item">
             <i class="fas fa-heart"></i>
             <h2>Valores</h2>
-            <p class="mvv-paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, rerum magni consequatur
-                voluptatem eveniet harum enim eos praesentium fugiat reprehenderit facere facilis ad debitis obcaecati
-                commodi inventore distinctio consequuntur minima?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem assumenda doloribus eligendi obcaecati,
-                quas sunt at suscipit cum id veritatis ad itaque ipsum tempora dolor repudiandae nisi doloremque
-                consectetur vel.
+            <p class="mvv-paragraph">
+            <?php
+                foreach($dtpub as $row):
+                    if($row["Seccion"] == "Valores"){
+                        echo $row["Secundario"];
+                    }
+                endforeach;
+            ?>
             </p>
         </div>
     </section>
@@ -259,19 +271,13 @@
     <section class="container-servicios">
         <h1 class="">Servicios que Realizamos</h1>
         <ul>
-            <li><a class="servicios-link" href="#">Limpieza Integral</a></li>
-            <li><a class="servicios-link" href="#">Limpieza Sanitizante COVID-19</a></li>
-            <li><a class="servicios-link" href="#">Limpieza de Consorcios</a></li>
-            <li><a class="servicios-link" href="#">Facility Services, Mantenimiento de Edificios, Reparaciones, Pintura, etc.</a></li>
-            <li><a class="servicios-link" href="#">Movimiento de Documentación Interna y Externa</a></li>
-            <li><a class="servicios-link" href="#">Mantenimiento de Espacios Verdes, Corte de Pasto</a></li>
-            <li><a class="servicios-link" href="#">Finales de Obras (Solo con la contratación del servicio de Limpieza y Mantenimiento)</a></li>
-            <li><a class="servicios-link" href="#">Lavado de Vidrios en Altura. Tarea realizada con personal propio</a></li>
-            <li><a class="servicios-link" href="#">Lavado de Alfombras</a></li>
-            <li><a class="servicios-link" href="#">Limpieza de Tanques de Agua Potable</a></li>
-            <li><a class="servicios-link" href="#">Limpieza Mecánica de Pisos y Terminado en Cera</a></li>
-            <li><a class="servicios-link" href="#">Provisión de Insumos de Tocador</a></li>
-            <li><a class="servicios-link" href="#">Provisión de Aromatizadores y Desodorizadores</a></li>
+            <?php
+                foreach($dtservicio as $serv):
+            ?>
+            <li><a class="servicios-link" href="index.php?page=Servicios#<?php echo $serv["IdServicio"]?>"><?php echo $serv["Servicio"]?></a></li>
+            <?php
+                endforeach;
+            ?>
         </ul>
     </section>
 

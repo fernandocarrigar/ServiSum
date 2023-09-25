@@ -28,12 +28,11 @@ require_once("Modelos/model_publicaciones.php");
                     <div class="container-sm justify-content-center rounded-1 ms-auto me-auto p-2 bg-white">
                         <h3 class="text-center">Publicacion para "Vision"</h3>
                         <div class="form-floating m-3">
-                            <input id="Principal" name="Principal" class="form-control" value="<?php echo $rows['Principal'] ?>" type="text" placeholder="Titulo" />
-                            <label for="Principal">Descripcion 1</label>
+                            <input id="Principal" name="Principal" class="form-control" value="<?php echo $rows['Principal'] ?>" type="text" placeholder="Titulo" hidden/>
                         </div>
                         <div class="form-floating m-3">
-                            <textarea id="Secundario" name="Secundario" class="form-control" value="<?php echo $rows['Secundario'] ?>" rows="4" placeholder="Descripcion"></textarea>
-                            <label for="Secundario">Descripcion 2</label>
+                            <textarea id="Secundario" name="Secundario" class="form-control" value="<?php echo $rows['Secundario'] ?>" rows="4" placeholder="Descripcion" style="height: 300px;"><?php echo $rows['Secundario'] ?></textarea>
+                            <label for="Secundario">Parrafo</label>
                         </div>
                         <input id="Seccion" name="Seccion" value="Vision" hidden />
                     </div>
@@ -47,12 +46,11 @@ require_once("Modelos/model_publicaciones.php");
                     <div class="container-sm justify-content-center rounded-1 ms-auto me-auto p-2 bg-white">
                         <h3 class="text-center">Publicacion para "Vision"</h3>
                         <div class="form-floating m-3">
-                            <input id="Principal" name="Principal" class="form-control" type="text" placeholder="Titulo" />
-                            <label for="Principal">Descripcion 1</label>
+                            <input id="Principal" name="Principal" class="form-control" type="text" placeholder="Titulo" hidden/>
                         </div>
                         <div class="form-floating m-3">
-                            <textarea id="Secundario" name="Secundario" class="form-control" rows="4" placeholder="Descripcion"></textarea>
-                            <label for="Secundario">Descripcion 2</label>
+                            <textarea id="Secundario" name="Secundario" class="form-control" rows="4" placeholder="Descripcion" style="height: 300px;"></textarea>
+                            <label for="Secundario">Parrafo</label>
                         </div>
                         <input id="Seccion" name="Seccion" value="Vision" hidden />
                     </div>
