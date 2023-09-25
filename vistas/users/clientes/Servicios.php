@@ -151,8 +151,8 @@ require_once("modelos/model_evidencias.php");
     <section class="gallery">
         <div class="category">
             <?php
-            foreach ($dtservicio as $serv):
-                ?>
+            foreach ($dtservicio as $serv) :
+            ?>
                 <h2>
                     <?php echo $serv["Servicio"] ?>
                 </h2>
@@ -162,25 +162,24 @@ require_once("modelos/model_evidencias.php");
                     <div class="navigation-arrows left" id="prevButton">&#9664;</div>
                     <div class="image-carousel">
                         <?php
-                        foreach ($dtevidencias as $row):
+                        foreach ($dtevidencias as $row) :
                             if ($row["Servicio"] == $serv["Servicio"]) {
-                                ?>
+                        ?>
                                 <!-- Imagen 1 con descripción -->
                                 <div class="image">
-                                    <img src="data:<?php echo $rows['EvidenciaTipoImg'] ?>;base64,<?php echo (base64_encode($rows['EvidenciaImg'])) ?>"
-                                        alt="Producto 1">
+                                    <img src="data:<?php echo $rows['EvidenciaTipoImg'] ?>;base64,<?php echo (base64_encode($rows['EvidenciaImg'])) ?>" alt="<?php echo $row["Descripcion"] ?>" />
                                     <div class="description">
                                         <?php echo $row["Descripcion"] ?>
                                     </div>
                                 </div>
-                                <?php
+                        <?php
                             }
                         endforeach;
                         ?>
                     </div>
                     <div class="navigation-arrows right" id="nextButton">&#9654;</div>
                 </div>
-                <?php
+            <?php
             endforeach;
             ?>
         </div>

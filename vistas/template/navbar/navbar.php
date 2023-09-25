@@ -1,5 +1,5 @@
 <?php
-    require_once('modelos/model_contactos.php');
+require_once('modelos/model_contactos.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="recursos/CSS/nav-bar.css">
 
     <link rel="stylesheet" href="recursos/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 </head>
 
@@ -27,13 +27,13 @@
             <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Nuestros Clientes</a></li>
             <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Contacto</a></li>
             <?php
-            if((!empty($dtcontactos)) && (isset($dtcontactos))){
+            if ((!empty($dtcontactos)) && (isset($dtcontactos))) {
                 $cc = 0;
-                foreach($dtcontactos as $contac):
-                    if($cc == 0){
-                        if((!empty($contac['IdContacto'])) && (isset($contac['IdContacto']))){
-                            echo '<li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=EdicionContacto&IdC='. $contac["IdContacto"] .'">Editar datos de contacto</a></li>';
-                        }else{
+                foreach ($dtcontactos as $contac) :
+                    if ($cc == 0) {
+                        if ((!empty($contac['IdContacto'])) && (isset($contac['IdContacto']))) {
+                            echo '<li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=EdicionContacto&IdC=' . $contac["IdContacto"] . '">Editar datos de contacto</a></li>';
+                        } else {
                             echo '<li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=EdicionContacto">Editar datos de contacto</a></li>';
                         }
                     }
@@ -57,6 +57,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark">
                     <li><a class="dropdown-item" href="index.php?page=ServiciosAdmin">Lista de servicios</a></li>
+                    <li><a class="dropdown-item" href="index.php?page=EdicionServicios">Edición Servicios</a></li>
                     <li><a class="dropdown-item" href="index.php?page=EvidenciasServicios">Evidencias</a></li>
                     <li><a class="dropdown-item" href="index.php?page=EdicionEvidencias">Agregar evidencia</a></li>
                 </ul>

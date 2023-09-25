@@ -14,7 +14,7 @@ require_once("modelos/model_servicios.php");
     <!-- Agrega las referencias a Bootstrap 5 CSS y JS -->
 
     <!-- Agrega Font Awesome para íconos animados -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         /* Estilos globales */
         body {
@@ -229,40 +229,40 @@ require_once("modelos/model_servicios.php");
         <div class="mvv-item">
             <i class="fas fa-bullseye"></i>
             <h2>Misión</h2>
-            <p class="mvv-paragraph overflow-auto">
-            <?php
-                foreach($dtpub as $row):
-                    if($row["Seccion"] == "Mision"){
+            <p class="mvv-paragraph">
+                <?php
+                foreach ($dtpub as $row) :
+                    if ($row["Seccion"] == "Mision") {
                         echo $row["Secundario"];
                     }
                 endforeach;
-            ?>
+                ?>
             </p>
         </div>
         <div class="mvv-item">
             <i class="fas fa-eye"></i>
             <h2>Visión</h2>
             <p class="mvv-paragraph">
-            <?php
-                foreach($dtpub as $row):
-                    if($row["Seccion"] == "Vision"){
+                <?php
+                foreach ($dtpub as $row) :
+                    if ($row["Seccion"] == "Vision") {
                         echo $row["Secundario"];
                     }
                 endforeach;
-            ?>
+                ?>
             </p>
         </div>
         <div class="mvv-item">
             <i class="fas fa-heart"></i>
             <h2>Valores</h2>
             <p class="mvv-paragraph">
-            <?php
-                foreach($dtpub as $row):
-                    if($row["Seccion"] == "Valores"){
+                <?php
+                foreach ($dtpub as $row) :
+                    if ($row["Seccion"] == "Valores") {
                         echo $row["Secundario"];
                     }
                 endforeach;
-            ?>
+                ?>
             </p>
         </div>
     </section>
@@ -272,11 +272,11 @@ require_once("modelos/model_servicios.php");
         <h1 class="">Servicios que Realizamos</h1>
         <ul>
             <?php
-                foreach($dtservicio as $serv):
+            foreach ($dtservicio as $serv) :
             ?>
-            <li><a class="servicios-link" href="index.php?page=Servicios#<?php echo $serv["IdServicio"]?>"><?php echo $serv["Servicio"]?></a></li>
+                <li><a class="servicios-link" href="index.php?page=Servicios#<?php echo $serv["IdServicio"] ?>"><?php echo $serv["Servicio"] ?></a></li>
             <?php
-                endforeach;
+            endforeach;
             ?>
         </ul>
     </section>
