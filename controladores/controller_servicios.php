@@ -103,6 +103,7 @@ class Servicios extends Conectar {
         $sql = "DELETE FROM {$this->table} WHERE {$this->pkey}={$this->id}";
         $this->db->query($sql);
     }
+
 }
 
 ?>

@@ -53,7 +53,7 @@ require_once("modelos/model_servicios.php");
                         </div>
                         <div class="form-floating m-3">
                             <textarea id="Descripcion" name="Descripcion" class="form-control"
-                                type="text" placeholder="Descripcion"></textarea>
+                                type="text" placeholder="Descripcion" style="height:300px;"></textarea>
                             <label for="Descripcion">Descripción</label>
                         </div>
 

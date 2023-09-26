@@ -39,6 +39,8 @@ require_once('modelos/model_contactos.php');
                     }
                     $cc++;
                 endforeach;
+            }else{
+                echo '<li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=EdicionContacto">Editar datos de contacto</a></li>';
             }
             ?>
             <li class="custom-navbar-item dropdown">

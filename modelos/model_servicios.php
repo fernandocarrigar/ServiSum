@@ -2,6 +2,7 @@
 
 require_once("recursos/config/db.php");
 require_once("controladores/controller_servicios.php");
+require_once("modelos/model_evidencias.php");
 
 
 $servicio = new Servicios();
@@ -45,7 +46,9 @@ if ((!empty($_GET['actionserv'])) && (isset($_GET['actionserv']))) {
 
         echo '<script>location.replace("index.php?page=ServiciosAdmin&upd=Ok");</script>';
     } elseif ($action === 'delete') {
+        $evidencia->deleteEvidenciaWhere($IdS);
         $servicio->deleteServicio($IdS);
+
         echo '<script>location.replace("index.php?page=ServiciosAdmin&del=Ok");</script>';
     }
 }

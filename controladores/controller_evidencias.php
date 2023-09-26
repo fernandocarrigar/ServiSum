@@ -129,6 +129,12 @@ class Evidencias extends Conectar {
         $sql = "DELETE FROM {$this->table} WHERE {$this->pkey}={$this->id}";
         $this->db->query($sql);
     }
+
+    public function deleteEvidenciaWhere($value)  {
+        $this->id = $value;
+        $sql = "DELETE FROM {$this->table} WHERE IdServicio={$this->id}";
+        $this->db->query($sql);
+    }
 }
 
 ?>
