@@ -37,10 +37,10 @@ require_once("modelos/model_evidencias.php");
 
         .category {
             width: 80%;
-            margin: 20px 0;
+            margin: 0 0 40px 0;
             background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
             overflow: hidden;
         }
 
@@ -63,11 +63,15 @@ require_once("modelos/model_evidencias.php");
         }
 
         .image {
-            flex: 0 0 calc(100% / 5);
+            flex: 0 0 calc(20% - 20px);
             position: relative;
-            margin-right: 10px;
+            margin-right: 20px;
             overflow: hidden;
             cursor: pointer;
+        }
+
+        .image:last-child {
+            margin-right: 0;
         }
 
         .image img {
@@ -149,10 +153,10 @@ require_once("modelos/model_evidencias.php");
 <body>
     <h1>Nuestros Servicios</h1>
     <section class="gallery">
-        <div class="category">
-            <?php
-            foreach ($dtservicio as $serv) :
-            ?>
+        <?php
+        foreach ($dtservicio as $serv) :
+        ?>
+            <div class="category">
                 <h2>
                     <?php echo $serv["Servicio"] ?>
                 </h2>
@@ -167,7 +171,7 @@ require_once("modelos/model_evidencias.php");
                         ?>
                                 <!-- Imagen 1 con descripción -->
                                 <div class="image">
-                                    <img src="data:<?php echo $rows['EvidenciaTipoImg'] ?>;base64,<?php echo (base64_encode($rows['EvidenciaImg'])) ?>" alt="<?php echo $row["Descripcion"] ?>" />
+                                    <img src="data:<?php echo $row['EvidenciaTipoImg'] ?>;base64,<?php echo (base64_encode($row['EvidenciaImg'])) ?>" alt="<?php echo $row["Descripcion"] ?>" />
                                     <div class="description">
                                         <?php echo $row["Descripcion"] ?>
                                     </div>
@@ -179,10 +183,10 @@ require_once("modelos/model_evidencias.php");
                     </div>
                     <div class="navigation-arrows right" id="nextButton">&#9654;</div>
                 </div>
-            <?php
-            endforeach;
-            ?>
-        </div>
+            </div>
+        <?php
+        endforeach;
+        ?>
     </section>
 </body>
 
