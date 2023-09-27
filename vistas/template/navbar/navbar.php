@@ -16,60 +16,78 @@ require_once('modelos/model_contactos.php');
 
 </head>
 
+<style>
+
+</style>
+
 <body>
-    <nav class="custom-navbar">
-        <div class="logo">
-            <img class="rounded" src="modern-company-logo-design-vector.jpg" alt="Logo de tu sitio web" style="height: 100%; width: auto;">
-        </div>
-
-        <ul class="custom-navbar-list">
-            <li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php">Inicio</a></li>
-            <li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=Servicios">Servicios</a></li>
-            <li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=Nosotros">Nosotros</a></li>
-            <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Nuestros Clientes</a></li>
-            <li class="custom-navbar-item"><a class="custom-navbar-link" href="#">Contacto</a></li>
-            <?php
-            if ((!empty($dtcontactos)) && (isset($dtcontactos))) {
-                $cc = 0;
-                foreach ($dtcontactos as $contac) :
-                    if ($cc == 0) {
-                        if ((!empty($contac['IdContacto'])) && (isset($contac['IdContacto']))) {
-                            echo '<li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=EdicionContacto&IdC=' . $contac["IdContacto"] . '">Editar datos de contacto</a></li>';
-                        } else {
-                            echo '<li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=EdicionContacto">Editar datos de contacto</a></li>';
-                        }
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img class="rounded" src="modern-company-logo-design-vector.jpg" alt="Logo de tu sitio web" style="height: 80px; width: auto;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=Servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=Nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nuestros Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                    <?php
+                    if ((!empty($dtcontactos)) && (isset($dtcontactos))) {
+                        $cc = 0;
+                        foreach ($dtcontactos as $contac) :
+                            if ($cc == 0) {
+                                if ((!empty($contac['IdContacto'])) && (isset($contac['IdContacto']))) {
+                                    echo '<li class="nav-item"><a class="nav-link" href="index.php?page=EdicionContacto&IdC=' . $contac["IdContacto"] . '">Editar datos de contacto</a></li>';
+                                } else {
+                                    echo '<li class="nav-item"><a class="nav-link" href="index.php?page=EdicionContacto">Editar datos de contacto</a></li>';
+                                }
+                            }
+                            $cc++;
+                        endforeach;
+                    } else {
+                        echo '<li class="nav-item"><a class="nav-link" href="index.php?page=EdicionContacto">Editar datos de contacto</a></li>';
                     }
-                    $cc++;
-                endforeach;
-            }else{
-                echo '<li class="custom-navbar-item"><a class="custom-navbar-link" href="index.php?page=EdicionContacto">Editar datos de contacto</a></li>';
-            }
-            ?>
-            <li class="custom-navbar-item dropdown">
-                <a class="custom-navbar-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                    Publicaciones
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="index.php?page=ImgCarrusel">Imagenes de Carrusel</a></li>
-                    <li><a class="dropdown-item" href="index.php?page=PublicacionesNosotros">Mision, Vision y Valores</a></li>
+                    ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="publicacionesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Publicaciones
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="publicacionesDropdown">
+                            <a class="dropdown-item" href="index.php?page=ImgCarrusel">Imagenes de Carrusel</a>
+                            <a class="dropdown-item" href="index.php?page=PublicacionesNosotros">Mision, Vision y Valores</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="administrarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Administrar servicios
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="administrarDropdown">
+                            <a class="dropdown-item" href="index.php?page=ServiciosAdmin">Lista de servicios</a>
+                            <a class="dropdown-item" href="index.php?page=EdicionServicios">Edición Servicios</a>
+                            <a class="dropdown-item" href="index.php?page=EvidenciasServicios">Evidencias</a>
+                            <a class="dropdown-item" href="index.php?page=EdicionEvidencias">Agregar evidencia</a>
+                        </div>
+                    </li>
                 </ul>
-
-            </li>
-            <li class="custom-navbar-item dropdown">
-                <a class="custom-navbar-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                    Administrar servicios
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="index.php?page=ServiciosAdmin">Lista de servicios</a></li>
-                    <li><a class="dropdown-item" href="index.php?page=EdicionServicios">Edición Servicios</a></li>
-                    <li><a class="dropdown-item" href="index.php?page=EvidenciasServicios">Evidencias</a></li>
-                    <li><a class="dropdown-item" href="index.php?page=EdicionEvidencias">Agregar evidencia</a></li>
-                </ul>
-
-            </li>
-
-        </ul>
+            </div>
+        </div>
     </nav>
+
 
     <!-- Contenido de prueba para activar el scroll -->
     <!-- <div style="height: 1500px;">
