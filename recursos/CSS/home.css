@@ -1,0 +1,189 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container-mision-vision-valores {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background-color: #333333;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+}
+
+.mvv-item {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.mvv-item:hover {
+    transform: translateY(-10px);
+}
+
+.mvv-item h2 {
+    color: #007BFF;
+    position: relative;
+    margin-top: -10px;
+    margin-bottom: 2px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.mvv-item i {
+    font-size: 48px;
+    color: #007BFF;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.mvv-item:hover h2 {
+    transform: translateY(-45px);
+}
+
+.mvv-item:hover i {
+    transform: translateX(-25%);
+}
+
+.mvv-item h2::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #007BFF;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.mvv-item:hover h2::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.mvv-paragraph {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    text-align: justify;
+    margin-top: -5px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.mvv-item:hover .mvv-paragraph {
+    max-height: 1000px;
+    opacity: 1;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.container-servicios {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container-servicios h1 {
+    text-align: center;
+    background: linear-gradient(45deg, #ff6600, #007BFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #541414;
+    width: 100%;
+}
+
+.container-servicios ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 40px;
+}
+
+.container-servicios li {
+    margin-bottom: 10px;
+}
+
+.servicios-link {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .container-mision-vision-valores {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .mvv-item {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .mvv-item:hover {
+        transform: translateY(0);
+    }
+
+    .mvv-item i {
+        transform: none;
+    }
+
+    .mvv-item h2 {
+        margin-top: 10px;
+        transform: none;
+        position: relative;
+    }
+
+    .mvv-item h2::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #007BFF;
+        bottom: -10px;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .mvv-item:hover h2::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    .mvv-paragraph {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        text-align: justify;
+        margin-top: -5px;
+        padding-bottom: 10px;
+        margin-bottom: 0;
+    }
+
+    .mvv-item:hover .mvv-paragraph {
+        max-height: 1000px;
+        opacity: 1;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+}

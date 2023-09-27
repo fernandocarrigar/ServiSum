@@ -11,10 +11,9 @@ require_once("modelos/model_servicios.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu Título Aquí</title>
-    <!-- Agrega las referencias a Bootstrap 5 CSS y JS -->
 
-    <!-- Agrega Font Awesome para íconos animados -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<<<<<<< Updated upstream
     <style>
         /* Estilos globales */
         body {
@@ -221,6 +220,8 @@ require_once("modelos/model_servicios.php");
             }
         }
     </style>
+=======
+>>>>>>> Stashed changes
 </head>
 
 <body>

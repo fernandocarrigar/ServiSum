@@ -7,6 +7,8 @@ require_once('modelos/model_contactos.php');
 
 <head>
     <link rel="stylesheet" type="text/css" href="recursos/CSS/nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="recursos/CSS/home.css">
+    <link rel="stylesheet" type="text/css" href="recursos/CSS/servicios.css">
 
     <link rel="stylesheet" href="recursos/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
