@@ -14,42 +14,51 @@ require_once("modelos/model_evidencias.php");
     <title>Galería de Productos</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9;
             margin: 0;
             padding: 0;
+            color: #333;
         }
 
         h1 {
             text-align: center;
-            background: linear-gradient(45deg, #ff6600, #007BFF);
+            background: linear-gradient(45deg, #f36a7b, #3f4ed7);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            padding-bottom: 10px;
+            padding: 30px 0;
+            font-weight: 600;
         }
 
         .gallery {
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 0 2%;
         }
 
         .category {
             width: 80%;
-            margin: 0 0 40px 0;
+            margin: 20px 0;
             background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
             overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .category:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .category h2 {
-            background-color: #333;
+            background-color: #3f4ed7;
             color: #fff;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             margin: 0;
+            font-weight: 600;
         }
 
         .carousel-container {
@@ -60,6 +69,7 @@ require_once("modelos/model_evidencias.php");
         .image-carousel {
             display: flex;
             transition: transform 0.5s ease;
+            padding: 20px;
         }
 
         .image {
@@ -68,6 +78,7 @@ require_once("modelos/model_evidencias.php");
             margin-right: 20px;
             overflow: hidden;
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
         .image:last-child {
@@ -78,23 +89,21 @@ require_once("modelos/model_evidencias.php");
             width: 100%;
             height: auto;
             object-fit: cover;
-            opacity: 0.8;
-            transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
 
         .image:hover img {
             transform: scale(1.1);
-            opacity: 1;
             filter: contrast(120%);
         }
 
         .description {
             position: absolute;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(63, 78, 215, 0.8);
             color: #fff;
             padding: 10px;
             opacity: 0;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.3s ease;
             top: 0;
             left: 0;
             right: 0;
@@ -103,6 +112,7 @@ require_once("modelos/model_evidencias.php");
             justify-content: center;
             align-items: center;
             text-align: center;
+            font-weight: 600;
         }
 
         .image:hover .description {
@@ -117,9 +127,9 @@ require_once("modelos/model_evidencias.php");
 
         .navigation-arrows {
             position: absolute;
-            width: 30px;
-            height: 30px;
-            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(63, 78, 215, 0.7);
             color: #fff;
             text-align: center;
             font-size: 24px;
@@ -133,19 +143,67 @@ require_once("modelos/model_evidencias.php");
         }
 
         .navigation-arrows.left {
-            left: 10px;
-            top: auto;
-            bottom: 10px;
+            left: 0px;
+            bottom: 0px;
+            transform: none;
         }
 
         .navigation-arrows.right {
-            right: 10px;
-            top: auto;
-            bottom: 10px;
+            right: 0px;
+            bottom: 0px;
+            transform: none;
         }
 
         .navigation-arrows:hover {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(63, 78, 215, 0.9);
+        }
+
+        /* Para tabletas y dispositivos más pequeños */
+        @media (max-width: 1024px) {
+            .image {
+                flex: 0 0 calc(25% - 15px);
+                margin-right: 15px;
+            }
+        }
+
+        /* Para teléfonos móviles en modo horizontal y dispositivos más pequeños */
+        @media (max-width: 768px) {
+            .image {
+                flex: 0 0 calc(33.333% - 10px);
+                margin-right: 10px;
+            }
+
+            .category h2,
+            .navigation-arrows {
+                padding: 15px;
+            }
+
+            .navigation-arrows {
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+            }
+        }
+
+        /* Para teléfonos móviles en modo vertical y dispositivos más pequeños */
+        @media (max-width: 480px) {
+            .image {
+                flex: 0 0 calc(50% - 10px);
+                margin-right: 10px;
+            }
+
+            .category h2 {
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 24px;
+                padding: 20px 0;
+            }
+
+            .description {
+                font-size: 14px;
+            }
         }
     </style>
 </head>

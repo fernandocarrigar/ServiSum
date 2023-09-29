@@ -1,8 +1,9 @@
 <?php
 // include_once("modelos/model_archivos.php");
-
+session_start();
 require_once("recursos/config/db.php");
 require_once("vistas/template/navbar/navbar.php");
+require_once("controladores/controller_login.php");
 
 if ((!empty($_GET['page']))  ||  (isset($_GET['page']))) {
     $page = $_GET['page'];

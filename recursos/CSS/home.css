@@ -1,189 +1,229 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+/* ---------------------- Colores ---------------------- */
+:root {
+    --primary-color: #ff6600;
+    /* Naranja */
+    --secondary-color: #4a6fa5;
+    /* Azul oscuro */
+    --background-color: #f7f9fc;
+    /* Gris claro */
+    --accent-color: #009688;
+    /* Verde azulado */
+    --highlight-color: #f0db4f;
+    /* Amarillo */
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --container-background: #3c506a;
+    /* Azul muy oscuro */
 }
 
+/* ---------------------- General ---------------------- */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    transition: background-color 0.5s;
+}
+
+/* ---------------------- Container: Mision, Vision, Valores ---------------------- */
 .container-mision-vision-valores {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-    background-color: #333333;
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 50px;
+    gap: 35px;
+    padding: 45px;
+    background: linear-gradient(140deg, var(--secondary-color) 0%, #2a3551 70%);
+    border-radius: 20px;
+    box-shadow: var(--shadow-dark);
 }
 
 .mvv-item {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
+    padding: 35px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-light);
     text-align: center;
     overflow: hidden;
     position: relative;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .mvv-item:hover {
-    transform: translateY(-10px);
+    transform: scale(1.05);
+    background-color: var(--highlight-color);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+}
+
+.mvv-item h2,
+.mvv-item i {
+    color: var(--accent-color);
+    position: relative;
+    transition: transform 0.3s ease-in-out;
 }
 
 .mvv-item h2 {
-    color: #007BFF;
-    position: relative;
-    margin-top: -10px;
-    margin-bottom: 2px;
-    transition: transform 0.3s ease-in-out;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 1px;
 }
 
 .mvv-item i {
-    font-size: 48px;
-    color: #007BFF;
-    margin-bottom: 20px;
+    font-size: 56px;
+    margin-bottom: 25px;
     display: block;
-    position: relative;
-    transition: transform 0.3s ease-in-out;
-}
-
-.mvv-item:hover h2 {
-    transform: translateY(-45px);
+    transition: color 0.3s ease-in-out;
 }
 
 .mvv-item:hover i {
-    transform: translateX(-25%);
+    color: var(--primary-color);
 }
 
 .mvv-item h2::after {
     content: "";
     position: absolute;
     width: 100%;
-    height: 2px;
-    background-color: #007BFF;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: right;
+    height: 3px;
+    background-color: var(--accent-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0.5);
+    transform-origin: center;
     transition: transform 0.3s ease-in-out;
 }
 
 .mvv-item:hover h2::after {
-    transform: scaleX(1);
-    transform-origin: left;
+    transform: translateX(-50%) scaleX(1);
 }
 
 .mvv-paragraph {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transition: max-height 0.5s, opacity 0.5s;
     text-align: justify;
     margin-top: -5px;
     padding-bottom: 10px;
-    margin-bottom: 0;
 }
 
 .mvv-item:hover .mvv-paragraph {
-    max-height: 1000px;
+    max-height: 200px;
     opacity: 1;
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
+/* ---------------------- Container: Servicios ---------------------- */
 .container-servicios {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    position: relative;
 }
 
 .container-servicios h1 {
     text-align: center;
-    background: linear-gradient(45deg, #ff6600, #007BFF);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #541414;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 10px 0;
+    margin: 0 auto 40px auto;
     width: 100%;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    border-radius: 8px 8px 0 0;
 }
 
 .container-servicios ul {
     list-style-type: disc;
-    padding-left: 20px;
-    margin-top: 40px;
+    padding-left: 40px;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 50px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.card {
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .container-servicios li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    transition: padding-left 0.3s ease-in-out;
+}
+
+.container-servicios li:hover {
+    padding-left: 10px;
 }
 
 .servicios-link {
     text-decoration: none;
-    color: #000;
-    font-weight: bold;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s;
 }
 
+.servicios-link:hover {
+    color: var(--primary-color);
+}
+
+/* ---------------------- Responsiveness ---------------------- */
+
+/* Mobile */
 @media (max-width: 768px) {
     .container-mision-vision-valores {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 20px;
         text-align: center;
     }
 
-    .mvv-item {
-        text-align: center;
-        padding: 20px;
-    }
-
+    .mvv-item h2,
+    .mvv-item i,
     .mvv-item:hover {
-        transform: translateY(0);
-    }
-
-    .mvv-item i {
         transform: none;
     }
 
     .mvv-item h2 {
-        margin-top: 10px;
-        transform: none;
-        position: relative;
+        margin-top: 20px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .mvv-item i {
+        font-size: 40px;
     }
 
-    .mvv-item h2::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: #007BFF;
-        bottom: -10px;
-        left: 0;
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 0.3s ease-in-out;
+    .mvv-item h2 {
+        font-size: 22px;
     }
 
-    .mvv-item:hover h2::after {
-        transform: scaleX(1);
-        transform-origin: left;
+    .container-servicios h1 {
+        font-size: 26px;
     }
+}
 
-    .mvv-paragraph {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-        text-align: justify;
-        margin-top: -5px;
-        padding-bottom: 10px;
-        margin-bottom: 0;
-    }
+/* Desktop */
+@media (min-width: 1025px) {
 
-    .mvv-item:hover .mvv-paragraph {
-        max-height: 1000px;
-        opacity: 1;
-        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    .container-mision-vision-valores,
+    .container-servicios {
+        padding-left: 50px;
+        padding-right: 50px;
     }
 }

@@ -24,11 +24,9 @@ require_once('modelos/model_contactos.php');
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img class="rounded" src="modern-company-logo-design-vector.jpg" alt="Logo de tu sitio web"
-                    style="height: 80px; width: auto;">
+                <img class="rounded bg-white" src="Logo Servicios SSP-02.png" alt="Logo de tu sitio web" style="height: 80px; width: auto;">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -48,10 +46,9 @@ require_once('modelos/model_contactos.php');
                     <?php
                     if ($_SESSION != null) {
                         if ($_SESSION['loggedin'] == true) {
-                            ?>
+                    ?>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="administrarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="administrarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Administrar clientes
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="administrarDropdown">
@@ -63,7 +60,7 @@ require_once('modelos/model_contactos.php');
                             <?php
                             if ((!empty($dtcontactos)) && (isset($dtcontactos))) {
                                 $cc = 0;
-                                foreach ($dtcontactos as $contac):
+                                foreach ($dtcontactos as $contac) :
                                     if ($cc == 0) {
                                         if ((!empty($contac['IdContacto'])) && (isset($contac['IdContacto']))) {
                                             echo '<li class="nav-item"><a class="nav-link" href="index.php?page=EdicionContacto&IdC=' . $contac["IdContacto"] . '">Editar datos de contacto</a></li>';
@@ -78,8 +75,7 @@ require_once('modelos/model_contactos.php');
                             }
                             ?>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="publicacionesDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="publicacionesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Publicaciones
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="publicacionesDropdown">
@@ -89,8 +85,7 @@ require_once('modelos/model_contactos.php');
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="administrarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="administrarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Administrar servicios
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="administrarDropdown">
@@ -100,7 +95,7 @@ require_once('modelos/model_contactos.php');
                                     <a class="dropdown-item" href="index.php?page=EdicionEvidencias">Agregar evidencia</a>
                                 </div>
                             </li>
-                            <?php
+                    <?php
                         }
                     }
                     ?>

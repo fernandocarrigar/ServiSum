@@ -2,7 +2,6 @@
 require_once("modelos/model_publicaciones.php");
 require_once("modelos/model_servicios.php");
 require_once("modelos/model_clientes.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +13,7 @@ require_once("modelos/model_clientes.php");
     <title>Tu Título Aquí</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -25,7 +25,7 @@ require_once("modelos/model_clientes.php");
             <h2>Misión</h2>
             <p class="mvv-paragraph">
                 <?php
-                foreach ($dtpub as $row):
+                foreach ($dtpub as $row) :
                     if ($row["Seccion"] == "Mision") {
                         echo $row["Secundario"];
                     }
@@ -38,7 +38,7 @@ require_once("modelos/model_clientes.php");
             <h2>Visión</h2>
             <p class="mvv-paragraph">
                 <?php
-                foreach ($dtpub as $row):
+                foreach ($dtpub as $row) :
                     if ($row["Seccion"] == "Vision") {
                         echo $row["Secundario"];
                     }
@@ -46,12 +46,12 @@ require_once("modelos/model_clientes.php");
                 ?>
             </p>
         </div>
-        <div class="mvv-item">
+        <div class="mvv-item" id="valores">
             <i class="fas fa-heart"></i>
             <h2>Valores</h2>
             <p class="mvv-paragraph">
                 <?php
-                foreach ($dtpub as $row):
+                foreach ($dtpub as $row) :
                     if ($row["Seccion"] == "Valores") {
                         echo $row["Secundario"];
                     }
@@ -63,15 +63,15 @@ require_once("modelos/model_clientes.php");
 
     <!-- Sección de Servicios -->
     <section class="container-servicios">
-        <h1 class="">Servicios que Realizamos</h1>
-        <ul>
+        <h1 class="container-servicios h1">Servicios que Realizamos</h1>
+        <ul class="servicios-list">
             <?php
-            foreach ($dtservicio as $serv):
-                ?>
+            foreach ($dtservicio as $serv) :
+            ?>
                 <li><a class="servicios-link" href="index.php?page=Servicios#<?php echo $serv["IdServicio"] ?>">
                         <?php echo $serv["Servicio"] ?>
                     </a></li>
-                <?php
+            <?php
             endforeach;
             ?>
         </ul>
@@ -82,25 +82,23 @@ require_once("modelos/model_clientes.php");
         <h1 class="container-servicios h1">Nuestros Clientes</h1>
         <div class="row row-cols-1 row-cols-md-4 mt-1 g-4">
             <?php
-            foreach ($dtclientes as $rows):
-                ?>
+            foreach ($dtclientes as $rows) :
+            ?>
                 <div class="col mb-4 pb-0">
                     <div class="card">
                         <a href="<?php if (!empty($rows['UrlCliente']) && (isset($rows['UrlCliente']))) {
-                            echo $rows['UrlCliente'];
-                        } else {
-                            echo "#";
-                        } ?>"
-                            target="_blank">
-                            <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>"
-                                alt="" class="card-img-top p-3" />
+                                        echo $rows['UrlCliente'];
+                                    } else {
+                                        echo "#";
+                                    } ?>" target="_blank">
+                            <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>" alt="" class="card-img-top p-3" />
                             <h5 class="nav-link card-title">
                                 <?php echo $rows['Descripcion'] ?>
                             </h5>
                         </a>
                     </div>
                 </div>
-                <?php
+            <?php
             endforeach;
             ?>
             <!-- Agrega más elementos aquí -->
@@ -119,7 +117,7 @@ require_once("modelos/model_clientes.php");
                 </div>
             </div>
             <div class="col mb-4 pb-0">
-                <div class="card">
+                <div class="card servicios-card">
                     <a href="#">
                         <img src="descarga.png" alt="Imagen 2" class="card-img-top" />
                     </a>
