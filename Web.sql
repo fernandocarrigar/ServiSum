@@ -20,16 +20,14 @@ Create Table Servicios(
     PRIMARY KEY (IdServicio)
 );
 
--- Create Table Herramientas (
---     IdHerramienta     int(10) NOT NULL AUTO_INCREMENT,
---     Descripcion     varchar(250) NOT NULL,
---     Archivo         longblob NOT NULL,
---     MimeType        varchar(50) NOT NULL,
---     IdServicio         int(10) NOT NULL,
--- -- IdHerramienta   int(10) NOT NULL,
--- PRIMARY KEY (IdHerramienta),
--- CONSTRAINT fk_Herramientas_Servicios FOREIGN KEY (IdServicio) REFERENCES Servicios(IdServicio)
--- );
+Create Table Clientes (
+    IdCliente     int(10) NOT NULL AUTO_INCREMENT,
+    Descripcion     varchar(250) NOT NULL,
+    UrlCliente      varchar(500) NULL,
+    Archivo         longblob NOT NULL,
+    MimeType        varchar(50) NOT NULL,
+PRIMARY KEY (IdCliente)
+);
 
 Create Table Evidencias (
     IdEvidencia     int(10) NOT NULL AUTO_INCREMENT,

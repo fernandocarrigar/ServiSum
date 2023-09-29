@@ -1,6 +1,7 @@
 <?php
 require_once("modelos/model_publicaciones.php");
 require_once("modelos/model_servicios.php");
+require_once("modelos/model_clientes.php");
 
 ?>
 
@@ -24,7 +25,7 @@ require_once("modelos/model_servicios.php");
             <h2>Misión</h2>
             <p class="mvv-paragraph">
                 <?php
-                foreach ($dtpub as $row) :
+                foreach ($dtpub as $row):
                     if ($row["Seccion"] == "Mision") {
                         echo $row["Secundario"];
                     }
@@ -37,7 +38,7 @@ require_once("modelos/model_servicios.php");
             <h2>Visión</h2>
             <p class="mvv-paragraph">
                 <?php
-                foreach ($dtpub as $row) :
+                foreach ($dtpub as $row):
                     if ($row["Seccion"] == "Vision") {
                         echo $row["Secundario"];
                     }
@@ -50,7 +51,7 @@ require_once("modelos/model_servicios.php");
             <h2>Valores</h2>
             <p class="mvv-paragraph">
                 <?php
-                foreach ($dtpub as $row) :
+                foreach ($dtpub as $row):
                     if ($row["Seccion"] == "Valores") {
                         echo $row["Secundario"];
                     }
@@ -65,10 +66,12 @@ require_once("modelos/model_servicios.php");
         <h1 class="">Servicios que Realizamos</h1>
         <ul>
             <?php
-            foreach ($dtservicio as $serv) :
-            ?>
-                <li><a class="servicios-link" href="index.php?page=Servicios#<?php echo $serv["IdServicio"] ?>"><?php echo $serv["Servicio"] ?></a></li>
-            <?php
+            foreach ($dtservicio as $serv):
+                ?>
+                <li><a class="servicios-link" href="index.php?page=Servicios#<?php echo $serv["IdServicio"] ?>">
+                        <?php echo $serv["Servicio"] ?>
+                    </a></li>
+                <?php
             endforeach;
             ?>
         </ul>
@@ -78,34 +81,28 @@ require_once("modelos/model_servicios.php");
     <section class="container-servicios">
         <h1 class="container-servicios h1">Nuestros Clientes</h1>
         <div class="row row-cols-1 row-cols-md-4 mt-1 g-4">
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                        <img src="marcas-logo-irwin.jpg" alt="Imagen 1" class="card-img-top" />
-                    </a>
+            <?php
+            foreach ($dtclientes as $rows):
+                ?>
+                <div class="col mb-4 pb-0">
+                    <div class="card">
+                        <a href="<?php if (!empty($rows['UrlCliente']) && (isset($rows['UrlCliente']))) {
+                            echo $rows['UrlCliente'];
+                        } else {
+                            echo "#";
+                        } ?>"
+                            target="_blank">
+                            <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>"
+                                alt="" class="card-img-top p-3" />
+                            <h5 class="nav-link card-title">
+                                <?php echo $rows['Descripcion'] ?>
+                            </h5>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                        <img src="eeee.png" alt="Imagen 2" class="card-img-top" />
-                    </a>
-                </div>
-            </div>
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                        <img src="descarga.png" alt="Imagen 3" class="card-img-top" />
-                    </a>
-                </div>
-            </div>
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                        <img src="Craftsman-logo.jpg" alt="Imagen 4" class="card-img-top" />
-                    </a>
-                </div>
-            </div>
+                <?php
+            endforeach;
+            ?>
             <!-- Agrega más elementos aquí -->
         </div>
     </section>

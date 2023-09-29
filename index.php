@@ -11,6 +11,9 @@ if ((!empty($_GET['page']))  ||  (isset($_GET['page']))) {
 }
 
 switch ($page) {
+    case "EdicionClientes":
+        include_once("vistas/users/admin/EdicionClientes.php");
+        break;
     case "EdicionEvidencias":
         include_once("vistas/users/admin/EdicionEvidencias.php");
         break;
@@ -44,26 +47,20 @@ switch ($page) {
     case "EdicionServicios":
         include_once("vistas/users/admin/EdicionServicios.php");
         break;
+    case "Clientes":
+        include_once("vistas/users/admin/Clientes.php");
+        break;
     case "ServiciosAdmin":
         include_once("vistas/users/admin/ServiciosAdmin.php");
         break;
     case "Servicios":
         include_once("vistas/users/clientes/Servicios.php");
         break;
+    case "Login":
+        include_once("vistas/template/login/login.php");
+        break;
     default:
-        if ((!empty($_SERVER['REQUEST_URI'])) && (isset($_SERVER['REQUEST_URI']))) {
-            $ruta = $_SERVER['REQUEST_URI'];
-            if (str_contains($ruta, '/ServiSum/index.php?Login')) {
-                // echo('<script>location.replace("Vistas/Template/login/login.php")</script>');
-                include_once("vistas/template/login/login.php");
-            } elseif (str_contains($ruta, '/ServiSum/index.php?Login&error=')) {
-                $error = $_GET['error'];
-                echo '<script>alert("' . $ruta . '");</script>';
-                include_once("vistas/template/login/login.php");
-            } else {
-                include_once('vistas/home/Home.php');
-            }
-        }
+        include_once('vistas/home/Home.php');
         break;
 }
 

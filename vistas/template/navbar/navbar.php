@@ -24,15 +24,17 @@ require_once('modelos/model_contactos.php');
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img class="rounded" src="modern-company-logo-design-vector.jpg" alt="Logo de tu sitio web" style="height: 80px; width: auto;">
+                <img class="rounded" src="modern-company-logo-design-vector.jpg" alt="Logo de tu sitio web"
+                    style="height: 80px; width: auto;">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Inicio</a>
+                        <a class="nav-link" href="index.php?page=">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?page=Servicios">Servicios</a>
@@ -43,46 +45,65 @@ require_once('modelos/model_contactos.php');
                     <li class="nav-item">
                         <a class="nav-link" href="#">Nuestros Clientes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                    </li>
                     <?php
-                    if ((!empty($dtcontactos)) && (isset($dtcontactos))) {
-                        $cc = 0;
-                        foreach ($dtcontactos as $contac) :
-                            if ($cc == 0) {
-                                if ((!empty($contac['IdContacto'])) && (isset($contac['IdContacto']))) {
-                                    echo '<li class="nav-item"><a class="nav-link" href="index.php?page=EdicionContacto&IdC=' . $contac["IdContacto"] . '">Editar datos de contacto</a></li>';
-                                } else {
-                                    echo '<li class="nav-item"><a class="nav-link" href="index.php?page=EdicionContacto">Editar datos de contacto</a></li>';
-                                }
+                    if ($_SESSION != null) {
+                        if ($_SESSION['loggedin'] == true) {
+                            ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="administrarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Administrar clientes
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="administrarDropdown">
+                                    <a class="dropdown-item" href="index.php?page=Clientes">Ver nuestros clientes</a>
+                                    <a class="dropdown-item" href="index.php?page=EdicionClientes">Edición de nuestros
+                                        clientes</a>
+                                </div>
+                            </li>
+                            <?php
+                            if ((!empty($dtcontactos)) && (isset($dtcontactos))) {
+                                $cc = 0;
+                                foreach ($dtcontactos as $contac):
+                                    if ($cc == 0) {
+                                        if ((!empty($contac['IdContacto'])) && (isset($contac['IdContacto']))) {
+                                            echo '<li class="nav-item"><a class="nav-link" href="index.php?page=EdicionContacto&IdC=' . $contac["IdContacto"] . '">Editar datos de contacto</a></li>';
+                                        } else {
+                                            echo '<li class="nav-item"><a class="nav-link" href="index.php?page=EdicionContacto">Editar datos de contacto</a></li>';
+                                        }
+                                    }
+                                    $cc++;
+                                endforeach;
+                            } else {
+                                echo '<li class="nav-item"><a class="nav-link" href="index.php?page=EdicionContacto">Editar datos de contacto</a></li>';
                             }
-                            $cc++;
-                        endforeach;
-                    } else {
-                        echo '<li class="nav-item"><a class="nav-link" href="index.php?page=EdicionContacto">Editar datos de contacto</a></li>';
+                            ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="publicacionesDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Publicaciones
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="publicacionesDropdown">
+                                    <a class="dropdown-item" href="index.php?page=ImgCarrusel">Imagenes de Carrusel</a>
+                                    <a class="dropdown-item" href="index.php?page=PublicacionesNosotros">Mision, Vision y
+                                        Valores</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="administrarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Administrar servicios
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="administrarDropdown">
+                                    <a class="dropdown-item" href="index.php?page=ServiciosAdmin">Lista de servicios</a>
+                                    <a class="dropdown-item" href="index.php?page=EdicionServicios">Edición Servicios</a>
+                                    <a class="dropdown-item" href="index.php?page=EvidenciasServicios">Evidencias</a>
+                                    <a class="dropdown-item" href="index.php?page=EdicionEvidencias">Agregar evidencia</a>
+                                </div>
+                            </li>
+                            <?php
+                        }
                     }
                     ?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="publicacionesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Publicaciones
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="publicacionesDropdown">
-                            <a class="dropdown-item" href="index.php?page=ImgCarrusel">Imagenes de Carrusel</a>
-                            <a class="dropdown-item" href="index.php?page=PublicacionesNosotros">Mision, Vision y Valores</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="administrarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Administrar servicios
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="administrarDropdown">
-                            <a class="dropdown-item" href="index.php?page=ServiciosAdmin">Lista de servicios</a>
-                            <a class="dropdown-item" href="index.php?page=EdicionServicios">Edición Servicios</a>
-                            <a class="dropdown-item" href="index.php?page=EvidenciasServicios">Evidencias</a>
-                            <a class="dropdown-item" href="index.php?page=EdicionEvidencias">Agregar evidencia</a>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>

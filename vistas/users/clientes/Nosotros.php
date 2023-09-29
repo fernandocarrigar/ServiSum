@@ -1,3 +1,8 @@
+<?php
+require_once("modelos/model_publicaciones.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -97,15 +102,39 @@
             <div class="nosotros-mission-vision-values">
                 <div class="nosotros-section">
                     <h3>Misión</h3>
-                    <p>Nuestra misión es...</p>
+                    <p>
+                    <?php
+                        foreach ($dtpub as $row):
+                            if ($row["Seccion"] == "Mision") {
+                                echo $row["Secundario"];
+                            }
+                        endforeach;
+                    ?>
+                    </p>
                 </div>
                 <div class="nosotros-section">
                     <h3>Visión</h3>
-                    <p>Nuestra visión es...</p>
+                    <p>
+                    <?php
+                        foreach ($dtpub as $row):
+                            if ($row["Seccion"] == "Vision") {
+                                echo $row["Secundario"];
+                            }
+                        endforeach;
+                    ?>
+                    </p>
                 </div>
                 <div class="nosotros-section">
                     <h3>Valores</h3>
-                    <p>Nuestros valores incluyen...</p>
+                    <p>
+                    <?php
+                        foreach ($dtpub as $row):
+                            if ($row["Seccion"] == "Valores") {
+                                echo $row["Secundario"];
+                            }
+                        endforeach;
+                    ?>
+                    </p>
                 </div>
             </div>
         </section>

@@ -21,6 +21,7 @@
 <script src="recursos/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 <script src="recursos/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="recursos/JS/site.js">
 
 <script>
     // AOS.init();

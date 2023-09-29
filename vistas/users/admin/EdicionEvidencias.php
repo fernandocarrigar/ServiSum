@@ -121,8 +121,8 @@ if ((!empty($_GET["form"])) && (isset($_GET["form"]))) {
                         </div>
                     </div>
                     <div class="container ms-auto me-auto mt-4">
-                        <button type="submit" class="btn btn-success btn-lg">Enviar
-                        <?php echo $form ?>
+                        <button type="submit" class="btn btn-success btn-lg">
+                        Adjuntar evidencia
                         </button>
                     </div>
                 <?php
