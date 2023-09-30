@@ -1,47 +1,54 @@
-const carouselContainer = document.querySelector(".carousel-container");
-const imageCarousel = document.querySelector(".image-carousel");
-const images = document.querySelectorAll(".image");
 const numImagesPerSlide = 5; // Ajusta el número de imágenes por slide
-let currentIndex = 0;
-const maxIndex = images.length - 1;
 
-function updateCarousel() {
+function updateCarousel(carousel, currentIndex) {
+    const images = carousel.querySelectorAll(".image");
+    const maxIndex = images.length - 1;
     const translateX = -currentIndex * (100 / numImagesPerSlide);
-    imageCarousel.style.transform = `translateX(${translateX}%)`;
+    carousel.style.transform = `translateX(${translateX}%)`;
+    return { images, maxIndex };
 }
 
-function nextSlide() {
-    currentIndex = currentIndex + numImagesPerSlide > maxIndex ? 0 : currentIndex + numImagesPerSlide;
-    updateCarousel();
+function navigateCarousel(direction, serviceName) {
+    const carousel = document.getElementById(`carousel-${serviceName}`);
+    let currentIndex = +carousel.getAttribute('data-index'); // Obtenemos el índice actual desde el atributo del elemento
+
+    if (direction === 'left') {
+        const { maxIndex } = updateCarousel(carousel, currentIndex);
+        currentIndex = currentIndex - numImagesPerSlide < 0 ? maxIndex : currentIndex - numImagesPerSlide;
+    } else if (direction === 'right') {
+        const { maxIndex } = updateCarousel(carousel, currentIndex);
+        currentIndex = currentIndex + numImagesPerSlide > maxIndex ? 0 : currentIndex + numImagesPerSlide;
+    }
+
+    carousel.setAttribute('data-index', currentIndex); // Actualizamos el índice en el atributo del elemento
+    updateCarousel(carousel, currentIndex);
 }
 
-function prevSlide() {
-    currentIndex = currentIndex - numImagesPerSlide < 0 ? maxIndex : currentIndex - numImagesPerSlide;
-    updateCarousel();
-}
+// Detener y reanudar el carrusel cuando el cursor entra/sale
+document.querySelectorAll(".carousel-container").forEach(carouselContainer => {
+    let interval = setInterval(() => {
+        navigateCarousel('right', carouselContainer.querySelector('.image-carousel').id.split('-')[1]);
+    }, 3500);
 
-// Agregar eventos para las flechas de navegación
-document.getElementById("prevButton").addEventListener("click", prevSlide);
-document.getElementById("nextButton").addEventListener("click", nextSlide);
+    carouselContainer.addEventListener("mouseenter", () => {
+        clearInterval(interval);
+    });
 
-// Cambia automáticamente de slide cada 5 segundos
-let interval = setInterval(nextSlide, 5000);
-
-// Detener el carrusel cuando el cursor está sobre él
-carouselContainer.addEventListener("mouseenter", () => {
-    clearInterval(interval);
-});
-
-// Reanudar el carrusel cuando el cursor sale de él
-carouselContainer.addEventListener("mouseleave", () => {
-    interval = setInterval(nextSlide, 5000);
+    carouselContainer.addEventListener("mouseleave", () => {
+        interval = setInterval(() => {
+            navigateCarousel('right', carouselContainer.querySelector('.image-carousel').id.split('-')[1]);
+        }, 3500);
+    });
 });
 
 // Navegación con teclado (flechas izquierda/derecha)
 document.querySelector(".gallery").addEventListener("keydown", (e) => {
+    const focusedCarousel = document.activeElement.querySelector('.image-carousel');
+    if (!focusedCarousel) return;
+
     if (e.key === "ArrowLeft") {
-        prevSlide();
+        navigateCarousel('left', focusedCarousel.id.split('-')[1]);
     } else if (e.key === "ArrowRight") {
-        nextSlide();
+        navigateCarousel('right', focusedCarousel.id.split('-')[1]);
     }
 });

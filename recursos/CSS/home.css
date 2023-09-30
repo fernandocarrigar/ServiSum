@@ -2,11 +2,11 @@
 :root {
     --primary-color: #ff6600;
     /* Naranja */
-    --secondary-color: #4a6fa5;
+    --secondary-color: #00345E;
     /* Azul oscuro */
     --background-color: #f7f9fc;
     /* Gris claro */
-    --accent-color: #009688;
+    --accent-color: #026b60;
     /* Verde azulado */
     --highlight-color: #f0db4f;
     /* Amarillo */
@@ -53,11 +53,18 @@ body {
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
+.mvv-item:hover h2,
+.mvv-item:hover p,
+.mvv-item:hover i {
+    color: #FFFFFF;
+}
+
 .mvv-item:hover {
     transform: scale(1.05);
-    background-color: var(--highlight-color);
+    background-color: var(--accent-color);
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
 }
+
 
 .mvv-item h2,
 .mvv-item i {
@@ -81,7 +88,7 @@ body {
 }
 
 .mvv-item:hover i {
-    color: var(--primary-color);
+    color: var(--background-color);
 }
 
 .mvv-item h2::after {
@@ -99,6 +106,7 @@ body {
 
 .mvv-item:hover h2::after {
     transform: translateX(-50%) scaleX(1);
+    background-color: #FFFFFF;
 }
 
 .mvv-paragraph {

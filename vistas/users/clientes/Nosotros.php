@@ -9,7 +9,7 @@ require_once("modelos/model_publicaciones.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosotros - Nuestra Empresa</title>
+    <title>SSP - Sobre Nosotros</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -103,37 +103,37 @@ require_once("modelos/model_publicaciones.php");
                 <div class="nosotros-section">
                     <h3>Misión</h3>
                     <p>
-                    <?php
-                        foreach ($dtpub as $row):
+                        <?php
+                        foreach ($dtpub as $row) :
                             if ($row["Seccion"] == "Mision") {
                                 echo $row["Secundario"];
                             }
                         endforeach;
-                    ?>
+                        ?>
                     </p>
                 </div>
                 <div class="nosotros-section">
                     <h3>Visión</h3>
                     <p>
-                    <?php
-                        foreach ($dtpub as $row):
+                        <?php
+                        foreach ($dtpub as $row) :
                             if ($row["Seccion"] == "Vision") {
                                 echo $row["Secundario"];
                             }
                         endforeach;
-                    ?>
+                        ?>
                     </p>
                 </div>
                 <div class="nosotros-section">
                     <h3>Valores</h3>
                     <p>
-                    <?php
-                        foreach ($dtpub as $row):
+                        <?php
+                        foreach ($dtpub as $row) :
                             if ($row["Seccion"] == "Valores") {
                                 echo $row["Secundario"];
                             }
                         endforeach;
-                    ?>
+                        ?>
                     </p>
                 </div>
             </div>

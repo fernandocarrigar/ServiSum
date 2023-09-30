@@ -12,7 +12,7 @@ require_once("modelos/model_maquinas.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Título Aquí</title>
+    <title>SSP - Inicio</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -113,23 +113,24 @@ require_once("modelos/model_maquinas.php");
     <section class="container-servicios">
         <h1 class="container-servicios h1">Maquinaria</h1>
         <div class="row row-cols-1 row-cols-md-4 mt-1 g-4">
-        <?php
-            foreach ($dtmaquinas as $rows):
-                    ?>
+            <?php
+            foreach ($dtmaquinas as $rows) :
+            ?>
 
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                    <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>" alt="" class="card-img-top p-3" />
-                    </a>
-                    <div class="card-body overflow-auto">
-                        <h5 class="card-title">
-                            <?php echo $rows['Descripcion'] ?>
-                        </h5>
-                                <!-- <span class="text-muted fs-6 m-2"><?php // echo $rows['TipoHerramienta']?></span><br/> -->
+                <div class="col mb-4 pb-0">
+                    <div class="card">
+                        <a href="#">
+                            <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>" alt="" class="card-img-top p-3" />
+                        </a>
+                        <div class="card-body overflow-auto">
+                            <h5 class="card-title">
+                                <?php echo $rows['Descripcion'] ?>
+                            </h5>
+                            <!-- <span class="text-muted fs-6 m-2"><?php // echo $rows['TipoHerramienta']
+                                                                    ?></span><br/> -->
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php
             endforeach;
             ?>
