@@ -29,6 +29,15 @@ Create Table Clientes (
 PRIMARY KEY (IdCliente)
 );
 
+Create Table Maquinas (
+    IdMaquinaria     int(10) NOT NULL AUTO_INCREMENT,
+    Descripcion     varchar(500) NOT NULL,
+    Archivo         longblob NOT NULL,
+    MimeType        varchar(50) NOT NULL,
+PRIMARY KEY (IdMaquinaria)
+);
+
+
 Create Table Evidencias (
     IdEvidencia     int(10) NOT NULL AUTO_INCREMENT,
     Descripcion     varchar(250) NOT NULL,

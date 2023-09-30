@@ -2,6 +2,8 @@
 require_once("modelos/model_publicaciones.php");
 require_once("modelos/model_servicios.php");
 require_once("modelos/model_clientes.php");
+require_once("modelos/model_maquinas.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -68,9 +70,11 @@ require_once("modelos/model_clientes.php");
             <?php
             foreach ($dtservicio as $serv) :
             ?>
-                <li><a class="servicios-link" href="index.php?page=Servicios#<?php echo $serv["IdServicio"] ?>">
+                <li>
+                    <a class="servicios-link" href="index.php?page=Servicios#<?php echo $serv["IdServicio"] ?>">
                         <?php echo $serv["Servicio"] ?>
-                    </a></li>
+                    </a>
+                </li>
             <?php
             endforeach;
             ?>
@@ -109,34 +113,27 @@ require_once("modelos/model_clientes.php");
     <section class="container-servicios">
         <h1 class="container-servicios h1">Maquinaria</h1>
         <div class="row row-cols-1 row-cols-md-4 mt-1 g-4">
+        <?php
+            foreach ($dtmaquinas as $rows):
+                    ?>
+
             <div class="col mb-4 pb-0">
                 <div class="card">
                     <a href="#">
-                        <img src="lMd2BnFmFN.jpg" alt="Imagen 1" class="card-img-top" />
+                    <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>" alt="" class="card-img-top p-3" />
                     </a>
+                    <div class="card-body overflow-auto">
+                        <h5 class="card-title">
+                            <?php echo $rows['Descripcion'] ?>
+                        </h5>
+                                <!-- <span class="text-muted fs-6 m-2"><?php // echo $rows['TipoHerramienta']?></span><br/> -->
+                    </div>
                 </div>
             </div>
-            <div class="col mb-4 pb-0">
-                <div class="card servicios-card">
-                    <a href="#">
-                        <img src="descarga.png" alt="Imagen 2" class="card-img-top" />
-                    </a>
-                </div>
-            </div>
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                        <img src="descarga2.png" alt="Imagen 3" class="card-img-top" />
-                    </a>
-                </div>
-            </div>
-            <div class="col mb-4 pb-0">
-                <div class="card">
-                    <a href="#">
-                        <img src="descarga (1).png" alt="Imagen 4" class="card-img-top" />
-                    </a>
-                </div>
-            </div>
+            <?php
+            endforeach;
+            ?>
+
             <!-- Agrega más elementos aquí -->
         </div>
     </section>

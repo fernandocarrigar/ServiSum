@@ -5,6 +5,8 @@ require_once("recursos/config/db.php");
 require_once("vistas/template/navbar/navbar.php");
 require_once("controladores/controller_login.php");
 
+
+
 if ((!empty($_GET['page']))  ||  (isset($_GET['page']))) {
     $page = $_GET['page'];
 } else {
@@ -12,6 +14,9 @@ if ((!empty($_GET['page']))  ||  (isset($_GET['page']))) {
 }
 
 switch ($page) {
+    case "EdicionMaquinaria":
+        include_once("vistas/users/admin/EdicionMaquinaria.php");
+        break;
     case "EdicionClientes":
         include_once("vistas/users/admin/EdicionClientes.php");
         break;
@@ -47,6 +52,9 @@ switch ($page) {
         break;
     case "EdicionServicios":
         include_once("vistas/users/admin/EdicionServicios.php");
+        break;
+    case "Maquinas":
+        include_once("vistas/users/admin/Maquinas.php");
         break;
     case "Clientes":
         include_once("vistas/users/admin/Clientes.php");

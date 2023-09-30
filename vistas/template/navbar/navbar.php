@@ -53,8 +53,7 @@ require_once('modelos/model_contactos.php');
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="administrarDropdown">
                                     <a class="dropdown-item" href="index.php?page=Clientes">Ver nuestros clientes</a>
-                                    <a class="dropdown-item" href="index.php?page=EdicionClientes">Edición de nuestros
-                                        clientes</a>
+                                    <a class="dropdown-item" href="index.php?page=EdicionClientes">Edición de nuestros clientes</a>
                                 </div>
                             </li>
                             <?php
@@ -95,6 +94,16 @@ require_once('modelos/model_contactos.php');
                                     <a class="dropdown-item" href="index.php?page=EdicionEvidencias">Agregar evidencia</a>
                                 </div>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="administrarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Administrar maquinas
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="administrarDropdown">
+                                    <a class="dropdown-item" href="index.php?page=Maquinas">Ver nuestras maquinas</a>
+                                    <a class="dropdown-item" href="index.php?page=EdicionMaquinaria">Edición de las maquinas</a>
+                                </div>
+                            </li>
+
                     <?php
                         }
                     }
