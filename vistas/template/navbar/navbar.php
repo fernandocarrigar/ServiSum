@@ -108,7 +108,7 @@ require_once('modelos/model_contactos.php');
                             <?php
                             if ($_SESSION != null) {
                                 if ($_SESSION['loggedin'] == true) {
-                                    echo '<li class="nav-item"><a class="nav-link" href="logout.php">Cerrar Sesión</a></li>';
+                                    echo '<li class="nav-item"><a class="nav-link" href="cerrar.php">Cerrar Sesión</a></li>';
                                 }
                             }
                             ?>
