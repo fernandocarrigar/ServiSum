@@ -11,6 +11,7 @@ require_once('modelos/model_contactos.php');
     <link rel="stylesheet" type="text/css" href="recursos/CSS/servicios.css">
     <link rel="stylesheet" type="text/css" href="recursos/CSS/login.css">
     <link rel="stylesheet" type="text/css" href="recursos/CSS/nosotros.css">
+    <link rel="stylesheet" type="text/css" href="recursos/CSS/footer.css">
 
     <link rel="stylesheet" href="recursos/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -44,7 +45,7 @@ require_once('modelos/model_contactos.php');
                         <a class="nav-link" href="index.php?page=Nosotros">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nuestros Clientes</a>
+                        <a class="nav-link" href="index.php?page=#clientes">Nuestros Clientes</a>
                     </li>
                     <?php
                     if ($_SESSION != null) {

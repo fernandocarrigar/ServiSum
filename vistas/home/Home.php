@@ -34,7 +34,7 @@ require_once("modelos/model_maquinas.php");
                 endforeach;
                 ?>
             </p>
-            <a href="index.php?page=Nosotros" class="btn btn-info home-btn">Descubre Más</a>
+            <a href="index.php?page=Nosotros" class="btn btn-primary home-btn">Descubre Más</a>
         </div>
         <div class="mvv-item">
             <i class="fas fa-eye"></i>
@@ -62,7 +62,7 @@ require_once("modelos/model_maquinas.php");
                 endforeach;
                 ?>
             </p>
-            <a href="index.php?page=Nosotros" class="btn btn-info home-btn">Descubre Más</a>
+            <a href="index.php?page=Nosotros" class="btn btn-primary home-btn">Descubre Más</a>
         </div>
     </section>
 

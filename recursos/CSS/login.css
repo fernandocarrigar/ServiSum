@@ -1,12 +1,12 @@
 :root {
-    --primary-color: #ff6600;
-    --secondary-color: #00345E;
-    --background-color: #f7f9fc;
-    --accent-color: #026b60;
-    --highlight-color: #f0db4f;
-    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
-    --shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.25);
-    --container-background: #3c506a;
+    --login-primary-color: #ff6600;
+    --login-secondary-color: #00345E;
+    --login-background-color: #f7f9fc;
+    --login-accent-color: #026b60;
+    --login-highlight-color: #c95d16;
+    --login-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --login-shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --login-container-background: #3c506a;
 }
 
 .login-container {
@@ -15,10 +15,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--container-background);
+    background-color: var(--login-container-background);
     padding: 50px;
     border-radius: 15px;
-    box-shadow: var(--shadow-dark);
+    box-shadow: var(--login-shadow-dark);
 }
 
 .login-logo-container {
@@ -48,7 +48,7 @@
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--background-color);
+    color: var(--login-background-color);
     width: 20px;
     height: 20px;
 }
@@ -57,32 +57,32 @@
 .login-input[type="password"] {
     width: 100%;
     padding: 17px 50px;
-    border: 2px solid var(--secondary-color);
+    border: 2px solid var(--login-secondary-color);
     border-radius: 20px;
-    background-color: var(--background-color);
-    color: var(--secondary-color);
+    background-color: var(--login-background-color);
+    color: var(--login-secondary-color);
     transition: border-color 0.3s;
 }
 
 .login-input[type="text"]:focus,
 .login-input[type="password"]:focus {
-    border-color: var(--accent-color);
+    border-color: var(--login-accent-color);
 }
 
 .login-button {
     width: 100%;
     padding: 17px;
-    background-color: var(--primary-color);
+    background-color: var(--login-primary-color);
     border: none;
     border-radius: 20px;
     color: #fff;
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--login-shadow-light);
 }
 
 .login-button:hover {
-    background-color: var(--highlight-color);
+    background-color: var(--login-highlight-color);
     transform: translateY(-2px);
 }

@@ -1,28 +1,28 @@
 /* Define colors and fonts from previous styles */
 :root {
-    --bg-color: #f9f9f9;
-    --text-color: #333;
-    --header-color: #00345e;
-    --secondary-color: #007BFF;
-    --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-dark: rgba(0, 0, 0, 0.2);
-    --font-primary: 'Open Sans', sans-serif;
+    --nosotros-bg-color: #f9f9f9;
+    --nosotros-text-color: #333;
+    --nosotros-header-color: #00345e;
+    --nosotros-secondary-color: #007BFF;
+    --nosotros-shadow-light: rgba(0, 0, 0, 0.1);
+    --nosotros-shadow-dark: rgba(0, 0, 0, 0.2);
+    --nosotros-font-primary: 'Open Sans', sans-serif;
 }
 
 body {
-    font-family: var(--font-primary);
-    background-color: var(--bg-color);
+    font-family: var(--nosotros-font-primary);
+    background-color: var(--nosotros-bg-color);
     margin: 0;
     padding: 0;
-    color: var(--text-color);
+    color: var(--nosotros-text-color);
 }
 
 .nosotros-header {
-    background-color: var(--header-color);
+    background-color: var(--nosotros-header-color);
     color: #fff;
     padding: 40px 0;
     text-align: center;
-    box-shadow: 0 4px 15px var(--shadow-light);
+    box-shadow: 0 4px 15px var(--nosotros-shadow-light);
 }
 
 .mvv-heading {
@@ -35,13 +35,12 @@ body {
     padding: 40px;
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid var(--header-color);
+    border: 2px solid var(--nosotros-header-color);
     border-radius: 12px;
 }
 
 .nosotros-title {
     font-size: 42px;
-    /* Incrementado */
     color: #fff;
     font-weight: bold;
     margin-bottom: 10px;
@@ -49,10 +48,9 @@ body {
 
 .nosotros-subtitle {
     font-size: 28px;
-    /* Incrementado */
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--header-color);
+    color: var(--nosotros-header-color);
     text-align: center;
 }
 
@@ -76,21 +74,20 @@ body {
     padding: 30px;
     background-color: #f7f7f7;
     border-radius: 8px;
-    border: 2px solid var(--header-color);
-    box-shadow: 0 4px 15px var(--shadow-light);
+    border: 2px solid var(--nosotros-header-color);
+    box-shadow: 0 4px 15px var(--nosotros-shadow-light);
     transition: box-shadow 0.3s ease;
 }
 
 .nosotros-section:hover {
-    box-shadow: 0 6px 18px var(--shadow-dark);
+    box-shadow: 0 6px 18px var(--nosotros-shadow-dark);
 }
 
 .nosotros-section h3 {
     font-weight: bold;
     font-size: 24px;
-    /* Incrementado */
     margin-bottom: 20px;
-    color: var(--header-color);
+    color: var(--nosotros-header-color);
 }
 
 .nosotros-section p {
@@ -99,7 +96,7 @@ body {
 
 #quienes-somos {
     margin-bottom: 40px;
-    border: 2px solid var(--header-color);
+    border: 2px solid var(--nosotros-header-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
