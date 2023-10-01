@@ -2,8 +2,8 @@
 :root {
     --bg-color: #f9f9f9;
     --text-color: #333;
-    --gradient-start: #f36a7b;
-    --gradient-end: #3f4ed7;
+    --gradient-start: #007BFF;
+    --gradient-end: #003366;
     --category-bg: #fff;
     --shadow-light: rgba(0, 0, 0, 0.1);
     --shadow-dark: rgba(0, 0, 0, 0.2);
@@ -58,7 +58,7 @@ body {
     box-shadow: 0 8px 15px var(--shadow-light);
     border-radius: 12px;
     overflow: hidden;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, width 0.5s ease;
 }
 
 .category:hover {
@@ -96,7 +96,7 @@ body {
     margin-bottom: 20px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, flex-basis 0.5s ease, margin-right 0.5s ease;
     border-radius: 12px;
     border: 1px solid var(--image-border);
     padding: 10px;
@@ -115,6 +115,7 @@ body {
     margin: 0 auto;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .image:hover {

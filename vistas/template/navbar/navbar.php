@@ -11,8 +11,9 @@ require_once('modelos/model_contactos.php');
     <link rel="stylesheet" type="text/css" href="recursos/CSS/servicios.css">
 
     <link rel="stylesheet" href="recursos/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="icon" href="Logo Servicios SSP-02.png" type="image/png">
 
 </head>
 

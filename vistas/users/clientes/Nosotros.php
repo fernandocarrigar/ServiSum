@@ -1,6 +1,5 @@
 <?php
 require_once("modelos/model_publicaciones.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -11,43 +10,68 @@ require_once("modelos/model_publicaciones.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SSP - Sobre Nosotros</title>
     <style>
+        /* Define colors and fonts from previous styles */
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --primary-color: #00345e;
+            --secondary-color: #007BFF;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+            --font-primary: 'Open Sans', sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: var(--font-primary);
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
+            color: var(--text-color);
         }
 
         .nosotros-header {
-            background-color: #212529;
+            background-color: var(--primary-color);
             color: #fff;
-            padding: 20px 0;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px var(--shadow-light);
+        }
+
+        .mvv-heading {
             text-align: center;
         }
 
         .nosotros-container {
             max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
+            margin: 40px auto;
+            padding: 40px;
             background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
         }
 
         .nosotros-title {
-            font-size: 32px;
+            font-size: 42px;
+            /* Incrementado */
             color: #fff;
             font-weight: bold;
+            margin-bottom: 10px;
         }
 
         .nosotros-subtitle {
+            font-size: 28px;
+            /* Incrementado */
             font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-align: center;
         }
 
         .nosotros-text {
-            font-size: 16px;
-            line-height: 1.6;
-            margin: 0 0 20px;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0 0 40px;
             text-align: justify;
         }
 
@@ -56,34 +80,75 @@ require_once("modelos/model_publicaciones.php");
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            margin: 20px -10px;
+            gap: 20px;
         }
 
         .nosotros-section {
-            flex: 0 0 calc(33.33% - 20px);
-            margin: 0 10px;
-            padding: 20px;
-            border: 1px solid #ddd;
+            flex: 1;
+            padding: 30px;
+            background-color: #f7f7f7;
             border-radius: 8px;
-            text-align: center;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .nosotros-section:hover {
+            box-shadow: 0 6px 18px var(--shadow-dark);
         }
 
         .nosotros-section h3 {
             font-weight: bold;
+            font-size: 24px;
+            /* Incrementado */
+            margin-bottom: 20px;
+            color: var(--primary-color);
         }
 
         .nosotros-section p {
             text-align: justify;
         }
 
-        /* Estilo adicional para ampliar la sección "¿Quiénes Somos?" */
         #quienes-somos {
-            flex: 0 0 calc(100% - 20px);
-            margin: 0 10px;
+            margin-bottom: 40px;
+            border: 2px solid var(--primary-color);
             padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Queries para responsividad */
+        /* Tablets */
+        @media (max-width: 992px) {
+            .nosotros-mission-vision-values {
+                flex-direction: column;
+            }
+
+            .nosotros-section {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Teléfonos en posición landscape y tablets pequeñas */
+        @media (max-width: 768px) {
+            .nosotros-container {
+                padding: 20px;
+            }
+        }
+
+        /* Teléfonos en posición portrait */
+        @media (max-width: 576px) {
+            .nosotros-title {
+                font-size: 32px;
+            }
+
+            .nosotros-subtitle {
+                font-size: 22px;
+            }
+
+            .nosotros-section h3 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -101,7 +166,7 @@ require_once("modelos/model_publicaciones.php");
         <section id="mision-vision-valores">
             <div class="nosotros-mission-vision-values">
                 <div class="nosotros-section">
-                    <h3>Misión</h3>
+                    <h3 class="mvv-heading">Misión</h3>
                     <p>
                         <?php
                         foreach ($dtpub as $row) :
@@ -113,7 +178,7 @@ require_once("modelos/model_publicaciones.php");
                     </p>
                 </div>
                 <div class="nosotros-section">
-                    <h3>Visión</h3>
+                    <h3 class="mvv-heading">Visión</h3>
                     <p>
                         <?php
                         foreach ($dtpub as $row) :
@@ -125,7 +190,7 @@ require_once("modelos/model_publicaciones.php");
                     </p>
                 </div>
                 <div class="nosotros-section">
-                    <h3>Valores</h3>
+                    <h3 class="mvv-heading">Valores</h3>
                     <p>
                         <?php
                         foreach ($dtpub as $row) :
@@ -138,7 +203,6 @@ require_once("modelos/model_publicaciones.php");
                 </div>
             </div>
         </section>
-
     </div>
 </body>
 

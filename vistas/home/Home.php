@@ -34,6 +34,7 @@ require_once("modelos/model_maquinas.php");
                 endforeach;
                 ?>
             </p>
+            <a href="ruta_mision.php" class="btn btn-info home-btn">Descubre Más</a>
         </div>
         <div class="mvv-item">
             <i class="fas fa-eye"></i>
@@ -47,6 +48,7 @@ require_once("modelos/model_maquinas.php");
                 endforeach;
                 ?>
             </p>
+            <a href="ruta_mision.php" class="btn btn-primary home-btn">Descubre Más</a>
         </div>
         <div class="mvv-item" id="valores">
             <i class="fas fa-heart"></i>
@@ -60,12 +62,13 @@ require_once("modelos/model_maquinas.php");
                 endforeach;
                 ?>
             </p>
+            <a href="ruta_mision.php" class="btn btn-info home-btn">Descubre Más</a>
         </div>
     </section>
 
     <!-- Sección de Servicios -->
     <section class="container-servicios">
-        <h1 class="container-servicios h1">Servicios que Realizamos</h1>
+        <h1 class="servicios-title">Servicios Que Realizamos</h1>
         <ul class="servicios-list">
             <?php
             foreach ($dtservicio as $serv) :
@@ -81,61 +84,58 @@ require_once("modelos/model_maquinas.php");
         </ul>
     </section>
 
-    <!-- Sección de Quiénes nos eligen -->
+    <!-- Sección de Nuestros Clientes -->
     <section class="container-servicios">
-        <h1 class="container-servicios h1">Nuestros Clientes</h1>
-        <div class="row row-cols-1 row-cols-md-4 mt-1 g-4">
+        <h1 class="servicios-title">Nuestros Clientes</h1>
+        <div class="row">
             <?php
             foreach ($dtclientes as $rows) :
             ?>
-                <div class="col mb-4 pb-0">
-                    <div class="card">
+                <div class="col-md-4 col-lg-3 col-sm-6 col-12 mb-4 pb-0">
+                    <div class="home-card card">
                         <a href="<?php if (!empty($rows['UrlCliente']) && (isset($rows['UrlCliente']))) {
                                         echo $rows['UrlCliente'];
                                     } else {
                                         echo "#";
                                     } ?>" target="_blank">
-                            <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>" alt="" class="card-img-top p-3" />
-                            <h5 class="nav-link card-title">
-                                <?php echo $rows['Descripcion'] ?>
-                            </h5>
+                            <div class="image-container position-relative">
+                                <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>" alt="" class="card-img-top p-3 clientes-imagen img-fluid" style="object-fit: contain; width: 290px; height: 330px;" />
+                                <div class="image-overlay">
+                                    <h5><?php echo $rows['Descripcion'] ?></h5>
+                                </div>
+                            </div>
                         </a>
                     </div>
                 </div>
-            <?php
-            endforeach;
-            ?>
-            <!-- Agrega más elementos aquí -->
+            <?php endforeach; ?>
         </div>
     </section>
 
     <!-- Sección de Maquinaria-->
     <section class="container-servicios">
-        <h1 class="container-servicios h1">Maquinaria</h1>
-        <div class="row row-cols-1 row-cols-md-4 mt-1 g-4">
+        <h1 class="servicios-title">Maquinaria</h1>
+        <div class="row">
             <?php
             foreach ($dtmaquinas as $rows) :
             ?>
-
-                <div class="col mb-4 pb-0">
-                    <div class="card">
+                <div class="col-md-4 col-lg-3 col-sm-6 col-12 mb-4 pb-0">
+                    <div class="home-card card">
                         <a href="#">
-                            <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>" alt="" class="card-img-top p-3" />
+                            <div class="image-container position-relative">
+                                <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>" alt="" class="card-img-top p-3 maquinaria-imagen img-fluid" style="object-fit: contain; width: 290px; height: 330px;" />
+                                <div class="image-overlay maquinaria-description">
+                                    <h5><?php echo $rows['Descripcion'] ?></h5>
+                                </div>
+                            </div>
                         </a>
                         <div class="card-body overflow-auto">
                             <h5 class="card-title">
                                 <?php echo $rows['Descripcion'] ?>
                             </h5>
-                            <!-- <span class="text-muted fs-6 m-2"><?php // echo $rows['TipoHerramienta']
-                                                                    ?></span><br/> -->
                         </div>
                     </div>
                 </div>
-            <?php
-            endforeach;
-            ?>
-
-            <!-- Agrega más elementos aquí -->
+            <?php endforeach; ?>
         </div>
     </section>
 

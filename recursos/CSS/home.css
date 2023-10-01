@@ -1,22 +1,16 @@
-/* ---------------------- Colores ---------------------- */
+/* ---------------------- Variables y Colores ---------------------- */
 :root {
     --primary-color: #ff6600;
-    /* Naranja */
     --secondary-color: #00345E;
-    /* Azul oscuro */
     --background-color: #f7f9fc;
-    /* Gris claro */
     --accent-color: #026b60;
-    /* Verde azulado */
     --highlight-color: #f0db4f;
-    /* Amarillo */
     --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
     --shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.25);
     --container-background: #3c506a;
-    /* Azul muy oscuro */
 }
 
-/* ---------------------- General ---------------------- */
+/* ---------------------- Estilos Generales ---------------------- */
 body {
     font-family: 'Nunito', sans-serif;
     background-color: var(--background-color);
@@ -28,7 +22,15 @@ body {
     transition: background-color 0.5s;
 }
 
-/* ---------------------- Container: Mision, Vision, Valores ---------------------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------------------- Mision, Vision, Valores ---------------------- */
 .container-mision-vision-valores {
     max-width: 1200px;
     margin: 50px auto;
@@ -53,6 +55,19 @@ body {
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
+.mvv-item .home-btn {
+    display: none;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mvv-item:hover .home-btn {
+    display: block;
+}
+
 .mvv-item:hover h2,
 .mvv-item:hover p,
 .mvv-item:hover i {
@@ -64,7 +79,6 @@ body {
     background-color: var(--accent-color);
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
 }
-
 
 .mvv-item h2,
 .mvv-item i {
@@ -124,7 +138,7 @@ body {
     opacity: 1;
 }
 
-/* ---------------------- Container: Servicios ---------------------- */
+/* ---------------------- Servicios ---------------------- */
 .container-servicios {
     max-width: 1200px;
     margin: 60px auto;
@@ -135,7 +149,7 @@ body {
     position: relative;
 }
 
-.container-servicios h1 {
+.servicios-title {
     text-align: center;
     background-color: var(--secondary-color);
     color: #fff;
@@ -155,17 +169,27 @@ body {
     padding-left: 50px;
 }
 
-.row {
+.home-row {
     margin-left: 0;
     margin-right: 0;
 }
 
-.card {
+.home-card {
     border-radius: 10px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+    /* to make sure the img fits correctly */
 }
 
-.card:hover {
+.home-card img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.home-card:hover img {
+    transform: scale(1.1);
+}
+
+.home-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
@@ -184,54 +208,154 @@ body {
     color: #333;
     font-weight: 600;
     transition: color 0.3s;
+    font-size: 20px;
 }
 
 .servicios-link:hover {
     color: var(--primary-color);
 }
 
-/* ---------------------- Responsiveness ---------------------- */
+/* Oculta la descripción por defecto */
+.maquinaria-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s, transform 0.3s;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+}
 
-/* Mobile */
+/* Estilo adicional para el texto */
+.maquinaria-description h5 {
+    margin: 0;
+}
+
+/* Estilo de hover para mostrar el texto */
+.home-card:hover .maquinaria-description {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card-title {
+    text-align: center;
+}
+
+.image-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+    padding: 10px;
+}
+
+.image-overlay h5 {
+    margin: 0;
+    font-size: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.home-card:hover .image-overlay {
+    opacity: 1;
+}
+
+/* For better organization and readability */
+.clientes-imagen,
+.maquinaria-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* ---------------------- Responsividad ---------------------- */
 @media (max-width: 768px) {
     .container-mision-vision-valores {
         grid-template-columns: 1fr;
-        gap: 20px;
-        text-align: center;
+        padding: 30px;
+        gap: 25px;
     }
 
-    .mvv-item h2,
-    .mvv-item i,
-    .mvv-item:hover {
-        transform: none;
-    }
-
-    .mvv-item h2 {
-        margin-top: 20px;
-    }
-}
-
-/* Tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .mvv-item i {
-        font-size: 40px;
+    .mvv-item {
+        padding: 25px;
     }
 
     .mvv-item h2 {
         font-size: 22px;
     }
 
-    .container-servicios h1 {
-        font-size: 26px;
+    .mvv-item i {
+        font-size: 45px;
+    }
+
+    /* Grid de 3 para tablets en .home-row */
+    .home-row {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Desktop */
-@media (min-width: 1025px) {
+@media (max-width: 480px) {
+    .container-mision-vision-valores {
+        grid-template-columns: 1fr;
+        padding: 25px;
+        gap: 20px;
+    }
 
-    .container-mision-vision-valores,
-    .container-servicios {
-        padding-left: 50px;
-        padding-right: 50px;
+    .mvv-item {
+        padding: 20px;
+    }
+
+    .mvv-item h2 {
+        font-size: 20px;
+    }
+
+    .mvv-item i {
+        font-size: 40px;
+    }
+
+    /* Grid de 2 para móviles en .home-row */
+    .home-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .mvv-item i {
+        font-size: 50px;
+    }
+
+    .mvv-item h2 {
+        font-size: 24px;
+    }
+
+    .servicios-title {
+        font-size: 26px;
+    }
+
+    .container-mision-vision-valores {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .mvv-item:nth-child(3) {
+        grid-column: span 2;
+        text-align: center;
     }
 }

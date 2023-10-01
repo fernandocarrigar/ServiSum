@@ -1,66 +1,43 @@
 ﻿<?php
 require_once("modelos/model_clientes.php");
 
-if(isset($_GET['ins'])){
-    if($_GET['ins'] == "Ok"){
-        echo '<script>alert("Se inserto correctamente");</script>';
-    }
-}elseif(isset($_GET['upd'])){
-    if($_GET['upd'] == "Ok"){
-        echo '<script>alert("Se actualizo correctamente");</script>';
-    }
-}elseif(isset($_GET['del'])){
-    if($_GET['del'] == "Ok"){
-        echo '<script>alert("Se elimino correctamente");</script>';
-    }
+if (isset($_GET['ins']) && $_GET['ins'] == "Ok") {
+    echo '<script>alert("Se inserto correctamente");</script>';
+} elseif (isset($_GET['upd']) && $_GET['upd'] == "Ok") {
+    echo '<script>alert("Se actualizo correctamente");</script>';
+} elseif (isset($_GET['del']) && $_GET['del'] == "Ok") {
+    echo '<script>alert("Se elimino correctamente");</script>';
 }
-
-
 ?>
 
+<title>SSP - Clientes</title>
 
-<div class="container shadow p-5 justify-content-center bg-dark-subtle">
+<div class="container shadow-lg p-5 bg-dark-subtle rounded">
 
     <!-- Titulo de la vista -->
-    <h1 class="text-center">Clientes para mostrar</h1>
-    <!-- Titulo de la vista -->
+    <h1 class="text-center mb-5">Clientes para mostrar</h1>
 
-    <div class="container mt-3 p-3 bg-white overflow-auto table-scroll rounded" style="max-height:1200px;">
-        <div class="row row-cols-1 row-cols-md-6 g-2">
+    <div class="container p-4 bg-white rounded table-scroll" style="max-height: 1200px; overflow-y: auto;">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
             <?php
-            foreach ($dtclientes as $rows):
-                    ?>
-                    <div class="col">
-                        <div class="card hv-card">
-                            <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>" alt="" class="card-img-top p-3" />
-                            <div class="card-body overflow-auto">
-                                <h5 class="card-title">
-                                    <?php echo $rows['Descripcion'] ?>
-                                </h5>
-                                <p class="card-text">
-                                    <?php if(!empty($rows['UrlCliente']) && (isset($rows['UrlCliente']))){ echo $rows['UrlCliente'];} ?>
-                                </p>
-                                <!-- <span class="text-muted fs-6 m-2"><?php // echo $rows['TipoHerramienta']?></span><br/> -->
-                                <div class="d-inline-flex">
-                                    <a href="index.php?page=EdicionClientes&IdC=<?php echo $rows['IdCliente'] ?>"
-                                        class="btn btn-success btn-sm">
-                                        Actualizar
-                                    </a>
-                                </div>
-                                <div class="d-inline-flex">
-                                    <a href="index.php?page=Clientes&IdC=<?php echo $rows['IdCliente'] ?>&actionclie=delete"
-                                        class="btn btn-danger btn-sm">
-                                        Eliminar
-                                    </a>
-                                </div>
-                            </div>
+            foreach ($dtclientes as $rows) :
+            ?>
+                <div class="col">
+                    <div class="card h-100 shadow-sm rounded">
+                        <img src="data:<?php echo $rows['MimeType'] ?>;base64,<?php echo (base64_encode($rows['Archivo'])) ?>" alt="" class="card-img-top p-3 rounded-top" />
+                        <div class="card-body">
+                            <h5 class="card-title mb-3"><?php echo $rows['Descripcion'] ?></h5>
+                            <?php if (!empty($rows['UrlCliente']) && isset($rows['UrlCliente'])) : ?>
+                                <p class="card-text mb-4"><?php echo $rows['UrlCliente']; ?></p>
+                            <?php endif; ?>
+                            <a href="index.php?page=EdicionClientes&IdC=<?php echo $rows['IdCliente'] ?>" class="btn btn-outline-success btn-sm me-2">Actualizar</a>
+                            <a href="index.php?page=Clientes&IdC=<?php echo $rows['IdCliente'] ?>&actionclie=delete" class="btn btn-outline-danger btn-sm">Eliminar</a>
                         </div>
                     </div>
-                    <?php
+                </div>
+            <?php
             endforeach;
             ?>
         </div>
     </div>
-
-
 </div>
