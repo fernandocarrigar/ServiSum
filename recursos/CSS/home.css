@@ -353,3 +353,39 @@ body {
         text-align: center;
     }
 }
+
+/* Carousel Styles */
+.custom-carousel {
+    display: flex;
+    align-items: center;
+}
+
+.custom-carousel-control {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.custom-carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
+
+.carousel-container {
+    padding: 0 0 48px 0;
+}
