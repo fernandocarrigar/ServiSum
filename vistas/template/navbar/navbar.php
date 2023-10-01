@@ -9,6 +9,7 @@ require_once('modelos/model_contactos.php');
     <link rel="stylesheet" type="text/css" href="recursos/CSS/nav-bar.css">
     <link rel="stylesheet" type="text/css" href="recursos/CSS/home.css">
     <link rel="stylesheet" type="text/css" href="recursos/CSS/servicios.css">
+    <link rel="stylesheet" type="text/css" href="recursos/CSS/login.css">
 
     <link rel="stylesheet" href="recursos/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -22,7 +23,7 @@ require_once('modelos/model_contactos.php');
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark <?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) ? 'admin-loggedin' : 'no-session'; ?>">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img class="rounded bg-white" src="Logo Servicios SSP-02.png" alt="Logo de tu sitio web" style="height: 80px; width: auto;">
@@ -104,7 +105,13 @@ require_once('modelos/model_contactos.php');
                                     <a class="dropdown-item" href="index.php?page=EdicionMaquinaria">Edición de las maquinas</a>
                                 </div>
                             </li>
-
+                            <?php
+                            if ($_SESSION != null) {
+                                if ($_SESSION['loggedin'] == true) {
+                                    echo '<li class="nav-item"><a class="nav-link" href="logout.php">Cerrar Sesión</a></li>';
+                                }
+                            }
+                            ?>
                     <?php
                         }
                     }
