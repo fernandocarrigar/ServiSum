@@ -86,7 +86,7 @@ require_once("modelos/model_maquinas.php");
 
     <!-- Sección de Nuestros Clientes -->
     <section class="container-servicios">
-        <h1 class="servicios-title">Nuestros Clientes</h1>
+        <h1 class="servicios-title" id="clientes">Nuestros Clientes</h1>
         <div class="row">
             <?php
             foreach ($dtclientes as $rows) :

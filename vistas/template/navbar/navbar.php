@@ -10,6 +10,7 @@ require_once('modelos/model_contactos.php');
     <link rel="stylesheet" type="text/css" href="recursos/CSS/home.css">
     <link rel="stylesheet" type="text/css" href="recursos/CSS/servicios.css">
     <link rel="stylesheet" type="text/css" href="recursos/CSS/login.css">
+    <link rel="stylesheet" type="text/css" href="recursos/CSS/nosotros.css">
 
     <link rel="stylesheet" href="recursos/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">

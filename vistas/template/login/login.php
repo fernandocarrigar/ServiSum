@@ -2,7 +2,7 @@
 include_once("modelos/model_login.php");
 ?>
 
-<title>Iniciar Sesión</title>
+<title>SSP - Iniciar Sesión</title>
 
 <div class="justify-content-center d-flex">
     <div class="login-container">
