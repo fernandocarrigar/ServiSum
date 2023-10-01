@@ -41,7 +41,7 @@ require_once("modelos/model_maquinas.php");
                         <div class="form-floating m-3">
                             <input id="Descripcion" name="Descripcion" class="form-control"
                                 value="<?php echo $rows['Descripcion'] ?>" type="text" placeholder="Descripcion del cliente" required />
-                            <label for="Descripcion">Nombre o descripción de la maquinaria</label>
+                            <label for="Descripcion">Nombre de la maquinaria</label>
                         </div>
                     </div>
                     <div class="card border-0 justify-content-center m-5 rounded-1 ms-1 me-4 bg-white">
@@ -74,7 +74,7 @@ require_once("modelos/model_maquinas.php");
                         <div class="form-floating m-3">
                             <input id="Descripcion" name="Descripcion" class="form-control" type="text"
                                 placeholder="Descripcion del cliente" required />
-                            <label for="Descripcion">Nombre o descripción de la maquinaria</label>
+                            <label for="Descripcion">Nombre de la maquinaria</label>
                         </div>
                     </div>
                     <div class="card border-0 justify-content-center m-5 rounded-1 ms-1 me-4 bg-white">

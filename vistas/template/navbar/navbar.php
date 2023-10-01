@@ -123,6 +123,15 @@ require_once('modelos/model_contactos.php');
         </div>
     </nav>
 
+    <?php
+    if ((!empty($dtcontactos)) && (isset($dtcontactos))) {
+        foreach ($dtcontactos as $contac) :
+    ?>
+    <a href="https://wa.me/1<?php echo $contac["Telefono"]?>" class="whatsapp" target="_blank"> <i class="fab fa-whatsapp whatsapp-icon"></i></a>
+    <?php
+        endforeach;
+    }
+    ?>
 
     <!-- Contenido de prueba para activar el scroll -->
     <!-- <div style="height: 1500px;">

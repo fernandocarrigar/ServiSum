@@ -120,7 +120,7 @@ require_once("Modelos/model_publicaciones.php");
                             <label for="Principal">Titulo</label>
                         </div>
                         <div class="form-floating m-3">
-                            <textarea id="Secundario" name="Secundario" class="form-control" value="<?php echo $rows['Secundario'] ?>" rows="4" placeholder="Descripcion"></textarea>
+                            <textarea id="Secundario" name="Secundario" class="form-control" value="<?php echo $rows['Secundario'] ?>" rows="4" placeholder="Descripcion"><?php echo $rows['Secundario'] ?></textarea>
                             <label for="Secundario">Descripcion</label>
                         </div>
                         <input id="Seccion" name="Seccion" value="ImagenesCarrusel" hidden />

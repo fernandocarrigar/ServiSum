@@ -23,7 +23,7 @@ if ((!empty($_GET["form"])) && (isset($_GET["form"]))) {
     <?php
     if ((!empty($dteviwhere)) && (isset($dteviwhere))) {
         ?>
-        <form method="post" action="index.php?page=EdicionEvidencias&actionevi=update&Id=<?php echo $IdE ?>"
+        <form method="post" action="index.php?page=EdicionEvidencias&actionevi=update&IdE=<?php echo $IdE ?>"
             enctype="multipart/form-data">
             <?php
     } else {

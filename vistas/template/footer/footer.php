@@ -1,3 +1,8 @@
+<?php
+require_once('modelos/model_contactos.php');
+?>
+
+
 <footer class="custom-footer mt-5">
     <div class="footer-content">
         <div class="footer-section quick-links">
@@ -9,14 +14,20 @@
                 <li><a href="index.php?page=#clientes">Nuestros Clientes</a></li>
             </ul>
         </div>
+        <?php 
+            foreach($dtcontactos as $row):
+        ?>
         <div class="footer-section company-details">
             <h4>Servicios y Suministros Peninsulares</h4>
-            <p>Dirección: 1234 Calle Principal, Ciudad, País</p>
-            <p>Teléfono: +00 123 456 7890</p>
-            <p>Email: contacto@compania.com</p>
+            <p>Dirección: <?php echo $row["Ciudad"] . ", " . $row["Estado"] . ", " . $row["CodigoP"]?></p>
+            <p>Teléfono: +<a href="" target="_blank" class="text-light"><?php echo $row["Telefono"]?></a></p>
+            <p>Email: <?php echo $row["Correo"]?></p>
         </div>
+        <?php 
+            endforeach;
+        ?>
 
-        <div class="footer-section social">
+        <!-- <div class="footer-section social">
             <h4>Síguenos</h4>
             <div>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -24,7 +35,7 @@
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="footer-bottom">
         <p>&copy; 2023 SSP. Todos los derechos reservados.</p>

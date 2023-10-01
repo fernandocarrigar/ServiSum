@@ -40,7 +40,7 @@
 <div class="container shadow p-5 justify-content-center bg-dark-subtle">
 
     <!-- Titulo de la vista -->
-    <h1 class="text-center">Catalogos</h1>
+    <h1 class="text-center">Evidencias de los servicios</h1>
     <!-- Titulo de la vista -->
     <!-- Boton del navbar lateral -->
     <!-- <button class="btn btn-primary btn-lg d-relative m-4" tabindex="-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
@@ -106,12 +106,12 @@
                         <p class="card-text"><?php echo $rows['Descripcion'] ?></p>
                         <!-- <span class="text-muted fs-6 m-2"><?php //echo $rows['TipoHerramienta']?></span><br/> -->
                         <div class="d-inline-flex">
-                            <a href="index.php?page=EdicionCatalogos&Id=<?php echo $rows['IdEvidencia']?>&form=Productos" class="btn btn-success btn-sm">
+                            <a href="index.php?page=EdicionEvidencias&IdE=<?php echo $rows['IdEvidencia']?>" class="btn btn-success btn-sm">
                                 Actualizar
                             </a>
                         </div>
                         <div class="d-inline-flex">
-                            <a href="index.php?page=Productos&Id=<?php echo $rows['IdEvidencia']?>&actionprod=delete" class="btn btn-danger btn-sm">
+                            <a href="index.php?page=EvidenciasServicios&IdE=<?php echo $rows['IdEvidencia']?>&actionevi=delete" class="btn btn-danger btn-sm">
                                 Eliminar
                             </a>
                         </div>

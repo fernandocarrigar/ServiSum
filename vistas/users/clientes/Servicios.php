@@ -18,8 +18,10 @@ require_once("modelos/model_evidencias.php");
     <h1 class="servicios-heading">Nuestros Servicios</h1>
     <section class="gallery">
         <?php
-        foreach ($dtservicio as $serv) :
-        ?>
+        foreach ($dtservicio as $serv):
+            ?>
+            <section id="<?php echo $serv['IdServicio'] ?>"></section>
+
             <div class="category">
                 <h2>
                     <?php echo $serv["Servicio"] ?>
@@ -27,28 +29,31 @@ require_once("modelos/model_evidencias.php");
                 <!-- Contenedor del carrusel -->
                 <div class="carousel-container">
                     <!-- Flechas de navegación -->
-                    <div class="navigation-arrows left" onclick="navigateCarousel('left', '<?php echo $serv["Servicio"]; ?>')">&#8592;</div>
+                    <div class="navigation-arrows left"
+                        onclick="navigateCarousel('left', '<?php echo $serv['Servicio']; ?>')">&#8592;</div>
                     <div class="image-carousel" id="carousel-<?php echo $serv["Servicio"]; ?>">
                         <?php
-                        foreach ($dtevidencias as $row) :
+                        foreach ($dtevidencias as $row):
                             if ($row["Servicio"] == $serv["Servicio"]) {
-                        ?>
+                                ?>
                                 <!-- Imagen con descripción -->
                                 <div class="image">
-                                    <img src="data:<?php echo $row['EvidenciaTipoImg'] ?>;base64,<?php echo (base64_encode($row['EvidenciaImg'])) ?>" alt="<?php echo $row["Descripcion"] ?>" />
+                                    <img src="data:<?php echo $row['EvidenciaTipoImg'] ?>;base64,<?php echo (base64_encode($row['EvidenciaImg'])) ?>"
+                                        alt="<?php echo $row["Descripcion"] ?>" />
                                     <div class="description">
                                         <?php echo $row["Descripcion"] ?>
                                     </div>
                                 </div>
-                        <?php
+                                <?php
                             }
                         endforeach;
                         ?>
                     </div>
-                    <div class="navigation-arrows right" onclick="navigateCarousel('right', '<?php echo $serv["Servicio"]; ?>')">&#8594;</div>
+                    <div class="navigation-arrows right"
+                        onclick="navigateCarousel('right', '<?php echo $serv['Servicio']; ?>')">&#8594;</div>
                 </div>
             </div>
-        <?php
+            <?php
         endforeach;
         ?>
     </section>

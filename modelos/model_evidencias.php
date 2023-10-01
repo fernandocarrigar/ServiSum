@@ -178,19 +178,21 @@ if((!empty($_GET['actionevi'])) && (isset($_GET['actionevi']))) {
                 if(isset($_POST['IdServicio'])){
                     $idserv = "". $_POST['IdServicio'] ."";                    
                 
-                    $evidencia->updateEvidencia($Id,$descrip, $dtfile, $filetype,$idserv);
+                    $evidencia->updateEvidencia($IdE,$descrip, $dtfile, $filetype,$idserv);
                 
-                //echo '<script>location.replace("index.php?page=Productos&upd=Ok");</script>';
+                echo '<script>location.replace("index.php?page=EvidenciasServicios&upd=Ok");</script>';
                 
                 }else{
-                    
-                    foreach($dtprodwhere as $temp):
-                        $idmar = $temp["IdServicio"];
+                    $dtfile = null;
+                    $filetype = null;
+    
+                    foreach($dteviwhere as $temp):
+                        $idserv = $temp["IdServicio"];
                     endforeach;
 
-                    $evidencia->updateEvidencia($Id,$descrip, $dtfile, $filetype,$idmar);
+                    $evidencia->updateEvidencia($IdE,$descrip, $dtfile, $filetype,$idserv);
                 
-                echo '<script>location.replace("index.php?page=EdicionEvidencias&upd=Ok");</script>';
+                echo '<script>location.replace("index.php?page=EvidenciasServicios&upd=Ok");</script>';
                 }
             } else {
 
@@ -213,10 +215,19 @@ if((!empty($_GET['actionevi'])) && (isset($_GET['actionevi']))) {
                 // INSERTAMOS LA MARCA EN LA BASE DE DATOS 
 
                 $descrip = "". $_POST['Descripcion'] ."";
-                $idserv = "". $_POST['IdServicio'] ."";
+                if(isset($_POST['IdServicio'])){
+                    $idserv = "". $_POST['IdServicio'] ."";                    
+                
+                    $evidencia->updateEvidencia($IdE,$descrip, $dtfile, $filetype,$idserv);
+                
+                }else{    
+                    foreach($dteviwhere as $temp):
+                        $idserv = $temp["IdServicio"];
+                    endforeach;
 
-                $evidencia->updateEvidencia($Id,$descrip, $dtfile, $filetype, $idserv);
-
+                    $evidencia->updateEvidencia($IdE,$descrip, $dtfile, $filetype,$idserv);
+                
+                }
                 // BORRA LOS ARCHIVOS QUE SE GUARDARON TEMPORALMENTE EN EL SERVIDOR
                 unlink($rtfile);
 

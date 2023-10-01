@@ -20,6 +20,44 @@ require_once("modelos/model_maquinas.php");
 </head>
 
 <body>
+    <section>
+    <div class="container-fluid carousel-container" style="padding: 0; padding-bottom: 48px;">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <ul class="carousel-indicators" style="list-style: none;">
+                <?php
+                $cuenta = 0;
+                foreach($dtpub as $imgCar):
+                    if($imgCar['Seccion'] == "ImagenesCarrusel"){
+                        $cuenta++;
+                    }
+                endforeach;
+                for ($i = 0; $i < $cuenta; $i++) {
+                ?>
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?php echo $i ?>" class="<?php echo $i === 0 ? 'active' : ''; ?>"></li>
+                <?php
+                }
+                ?>
+            </ul>
+            <div class="carousel-inner custom-carousel-inner">
+                <?php
+                $j = 0;
+                foreach ($dtpubSeccion as $imgCar) :
+                    if ($imgCar['Seccion'] == "ImagenesCarrusel") {
+                ?>
+                        <div class="carousel-item <?php echo $j === 0 ? 'active' : ''; ?>">
+                            <img src="data:<?php echo $imgCar['MimeType'] ?>;base64,<?php echo (base64_encode($imgCar['Archivo'])) ?>" class="d-block w-100 custom-carousel-img" style="object-fit:contain;" alt="Imagen 1">
+                        </div>
+                <?php
+                        $j++;
+                    }
+                endforeach;
+                ?>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
     <!-- Sección de Misión, Visión y Valores -->
     <section class="container-mision-vision-valores">
         <div class="mvv-item">

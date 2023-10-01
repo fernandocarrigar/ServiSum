@@ -113,10 +113,15 @@ class Evidencias extends Conectar {
     public function updateEvidencia($value,$desc,$file,$type,$marca)  {
         $this->id = $value;     //ATRAPA EL ID QUE SE USARA PARA IDENTIFICAR CUAL SE CAMBIARA
         // $this->col = implode(",",$this->columsn);
-        $this->values[] = $this->column[0] ."='". $desc ."'";
-        $this->values[] = $this->column[1] ."='". $file ."'";
-        $this->values[] = $this->column[2] ."='". $type ."'";
-        $this->values[] = $this->column[3] ."='". $marca ."'";
+        if(isset($file) && isset($type)){
+            $this->values[] = $this->column[0] ."='". $desc ."'";
+            $this->values[] = $this->column[1] ."='". $file ."'";
+            $this->values[] = $this->column[2] ."='". $type ."'";
+            $this->values[] = $this->column[3] ."='". $marca ."'";
+        }else{
+            $this->values[] = $this->column[0] ."='". $desc ."'";
+            $this->values[] = $this->column[3] ."='". $marca ."'";
+        }
         $this->val = implode(",",$this->values);
 
         $sql = "UPDATE {$this->table} SET {$this->val} WHERE {$this->pkey}='{$this->id}'";

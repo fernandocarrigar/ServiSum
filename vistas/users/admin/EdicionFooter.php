@@ -45,11 +45,13 @@ require_once('modelos/model_contactos.php');
                 <?php
                 $isEdit = (!empty($dtcontactowhere)) && (isset($dtcontactowhere));
                 $formAction = $isEdit ? "index.php?page=EdicionContacto&actioncon=update&IdC=$IdC" : "index.php?page=EdicionContacto&actioncon=insert";
+                foreach($dtcontactowhere as $row):
                 $correo = $isEdit ? $row["Correo"] : "";
                 $estado = $isEdit ? $row["Estado"] : "";
                 $ciudad = $isEdit ? $row["Ciudad"] : "";
                 $codigoP = $isEdit ? $row["CodigoP"] : "";
                 $telefono = $isEdit ? $row["Telefono"] : "";
+                endforeach;
                 ?>
                 <form method="post" action="<?php echo $formAction ?>" enctype="multipart/form-data">
                     <div class="mb-3">

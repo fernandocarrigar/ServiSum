@@ -41,7 +41,7 @@
                         <h5 class="card-title"><?php echo $rows['Principal']?></h5>
                         <p class="card-text"><?php echo $rows['Secundario'] ?></p>
                         <div class="d-inline-flex">
-                            <a href="index.php?page=EdicionPagina&Id=<?php echo $rows['IdPublic']?>&form=<?php echo $Seccion?>" class="btn btn-success btn-sm">
+                            <a href="index.php?page=EdicionImgCarrusel&Id=<?php echo $rows['IdPublic']?>" class="btn btn-success btn-sm">
                                 Actualizar
                             </a>
                         </div>
