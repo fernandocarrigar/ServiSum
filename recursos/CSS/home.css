@@ -76,7 +76,7 @@ body {
 
 .mvv-item:hover {
     transform: scale(1.05);
-    background-color: var(--accent-color);
+    background-color: var(--home-accent-color);
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
 }
 
@@ -102,7 +102,7 @@ body {
 }
 
 .mvv-item:hover i {
-    color: var(--background-color);
+    color: var(--home-background-color);
 }
 
 .mvv-item h2::after {
