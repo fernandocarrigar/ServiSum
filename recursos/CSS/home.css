@@ -43,6 +43,7 @@ body {
     box-shadow: var(--home-shadow-dark);
 }
 
+/* Estilos de los ítems en Mision, Vision, Valores */
 .mvv-item {
     padding: 35px;
     background-color: rgba(255, 255, 255, 0.92);
@@ -55,6 +56,7 @@ body {
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
+/* Botón en los ítems de Mision, Vision, Valores */
 .mvv-item .home-btn {
     display: none;
     margin-top: 20px;
@@ -64,22 +66,26 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Mostrar botón al pasar el ratón sobre el ítem */
 .mvv-item:hover .home-btn {
     display: block;
 }
 
+/* Cambiar colores al pasar el ratón sobre el ítem */
 .mvv-item:hover h2,
 .mvv-item:hover p,
 .mvv-item:hover i {
     color: #FFFFFF;
 }
 
+/* Efecto de escala y sombra al pasar el ratón sobre el ítem */
 .mvv-item:hover {
     transform: scale(1.05);
     background-color: var(--home-accent-color);
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilos de título y texto en Mision, Vision, Valores */
 .mvv-item h2,
 .mvv-item i {
     color: var(--home-accent-color);
@@ -101,10 +107,12 @@ body {
     transition: color 0.3s ease-in-out;
 }
 
+/* Cambiar color al pasar el ratón sobre el ítem */
 .mvv-item:hover i {
     color: var(--home-background-color);
 }
 
+/* Efecto de línea bajo el título al pasar el ratón sobre el ítem */
 .mvv-item h2::after {
     content: "";
     position: absolute;
@@ -118,11 +126,13 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
+/* Cambiar color y ancho de la línea al pasar el ratón sobre el ítem */
 .mvv-item:hover h2::after {
     transform: translateX(-50%) scaleX(1);
     background-color: #FFFFFF;
 }
 
+/* Estilos del párrafo en Mision, Vision, Valores */
 .mvv-paragraph {
     max-height: 0;
     overflow: hidden;
@@ -133,6 +143,7 @@ body {
     padding-bottom: 10px;
 }
 
+/* Mostrar el párrafo al pasar el ratón sobre el ítem */
 .mvv-item:hover .mvv-paragraph {
     max-height: 200px;
     opacity: 1;
@@ -149,6 +160,7 @@ body {
     position: relative;
 }
 
+/* Título de Servicios */
 .servicios-title {
     text-align: center;
     background-color: var(--home-secondary-color);
@@ -162,6 +174,7 @@ body {
     border-radius: 8px 8px 0 0;
 }
 
+/* Lista de Servicios */
 .container-servicios ul {
     list-style-type: disc;
     padding-left: 40px;
@@ -169,6 +182,7 @@ body {
     padding-left: 50px;
 }
 
+/* Estilos de fila y tarjeta */
 .home-row {
     margin-left: 0;
     margin-right: 0;
@@ -178,9 +192,9 @@ body {
     border-radius: 10px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     overflow: hidden;
-    /* to make sure the img fits correctly */
 }
 
+/* Efecto de escala y sombra al pasar el ratón sobre la tarjeta */
 .home-card img {
     transition: transform 0.3s ease-in-out;
 }
@@ -194,6 +208,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilos de elementos de la lista de servicios */
 .container-servicios li {
     margin-bottom: 15px;
     transition: padding-left 0.3s ease-in-out;
@@ -215,6 +230,7 @@ body {
     color: var(--home-primary-color);
 }
 
+/* Descripción de la maquinaria */
 .maquinaria-description {
     display: flex;
     align-items: center;
@@ -238,15 +254,38 @@ body {
     margin: 0;
 }
 
+/* Mostrar descripción al pasar el ratón sobre la tarjeta */
 .home-card:hover .maquinaria-description {
     opacity: 1;
     transform: scale(1);
 }
 
 .card-title {
-    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
 }
 
+.card-home {
+    height: 100px;
+    overflow-y: auto;
+    padding: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card-home::-webkit-scrollbar {
+    width: 6px;
+}
+
+.card-home::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.card-home::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Estilos de superposición de imagen */
 .image-overlay {
     display: flex;
     align-items: center;
@@ -270,6 +309,7 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
+/* Mostrar superposición de imagen al pasar el ratón sobre la tarjeta */
 .home-card:hover .image-overlay {
     opacity: 1;
 }
@@ -388,4 +428,41 @@ body {
 
 .carousel-container {
     padding: 0 0 48px 0;
+}
+
+@media screen and (max-width: 992px) {
+    .container-mission-vision-values {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-mision-vision-valores {
+        grid-template-columns: 1fr;
+    }
+}
+
+.custom-carousel-img,
+.clientes-imagen,
+.maquinaria-imagen {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+}
+
+/* ---------------------- Responsividad ---------------------- */
+@media (max-width: 768px) {
+
+    .clientes-imagen,
+    .maquinaria-imagen {
+        object-position: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .clientes-imagen,
+    .maquinaria-imagen {
+        object-position: center;
+    }
 }

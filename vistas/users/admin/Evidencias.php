@@ -1,9 +1,11 @@
 ﻿<?php
 
-    require_once("modelos/model_servicios.php");
-    require_once("modelos/model_evidencias.php");
+require_once("modelos/model_servicios.php");
+require_once("modelos/model_evidencias.php");
 
 ?>
+
+<title>SSP - Evidencias De Servicios</title>
 
 <!-- Navbar lateral start-->
 
@@ -50,81 +52,83 @@
 
 
     <div class="container mt-3 p-3 bg-white overflow-auto table-scroll rounded" style="max-height:1200px;">
-    <?php
-        if((isset($Servicio))){
-    ?>
-        <div class="row row-cols-1 row-cols-md-6 g-2">
-            <?php
-                foreach($dtevidencias as $rows):
-                    if($rows['IdServicio'] === $Servicio){
-            ?>
+        <?php
+        if ((isset($Servicio))) {
+        ?>
+            <div class="row row-cols-1 row-cols-md-6 g-2">
+                <?php
+                foreach ($dtevidencias as $rows) :
+                    if ($rows['IdServicio'] === $Servicio) {
+                ?>
+                        <div class="col">
+                            <div class="card hv-card">
+                                <img src="data:<?php echo $rows['EvidenciaTipoImg'] ?>;base64,<?php echo (base64_encode($rows['EvidenciaImg'])) ?>" alt="" class="card-img-top p-3" />
+                                <div class="card-body overflow-auto">
+                                    <h5 class="card-title"><?php echo $rows['Servicio'] ?></h5>
+                                    <p class="card-text"><?php echo $rows['Descripcion'] ?></p>
+                                    <!-- <span class="text-muted fs-6 m-2"><?php // echo $rows['TipoHerramienta']
+                                                                            ?></span><br/> -->
+                                    <div class="d-inline-flex">
+                                        <a href="index.php?page=EdicionCatalogos&Id=<?php echo $rows['IdEvidencia'] ?>&form=Productos" class="btn btn-success btn-sm">
+                                            Actualizar
+                                        </a>
+                                    </div>
+                                    <div class="d-inline-flex">
+                                        <a href="index.php?page=Productos&Id=<?php echo $rows['IdEvidencia'] ?>&actionprod=delete" class="btn btn-danger btn-sm">
+                                            Eliminar
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <?php
+                    }
+                endforeach;
+                ?>
+            </div>
+        <?php
+        } else if (!isset($Servicio)) {
+        ?>
+            <div class="row justify-content-center">
+                <!-- <p>En esta seccion, se podran ver los diferentes productos que existen en la pagina. <br />
+                De igual manera hay un boton en la parte superior que permite el 
+                <a class="underline" tabindex="-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">filtrado</a>
+                 de los productos, de esta manera podra diferenciar sin importar cuantas tenga en el sitio web.
+            </p> -->
+            </div>
+            <hr>
+            <div class="row row-cols-1 row-cols-md-6 g-3">
+                <?php
+                foreach ($dtevidencias as $rows) :
+                ?>
                     <div class="col">
                         <div class="card hv-card">
-                            <img src="data:<?php echo $rows['EvidenciaTipoImg'] ?>;base64,<?php echo(base64_encode($rows['EvidenciaImg'])) ?>" alt="" class="card-img-top p-3" />
+                            <img src="data:<?php echo $rows['EvidenciaTipoImg'] ?>;base64,<?php echo (base64_encode($rows['EvidenciaImg'])) ?>" alt="" class="card-img-top p-3" />
                             <div class="card-body overflow-auto">
-                                <h5 class="card-title"><?php echo $rows['Servicio']?></h5>
+                                <h5 class="card-title"><?php echo $rows['Servicio'] ?></h5>
                                 <p class="card-text"><?php echo $rows['Descripcion'] ?></p>
-                                <!-- <span class="text-muted fs-6 m-2"><?php // echo $rows['TipoHerramienta']?></span><br/> -->
+                                <!-- <span class="text-muted fs-6 m-2"><?php //echo $rows['TipoHerramienta']
+                                                                        ?></span><br/> -->
                                 <div class="d-inline-flex">
-                                    <a href="index.php?page=EdicionCatalogos&Id=<?php echo $rows['IdEvidencia']?>&form=Productos" class="btn btn-success btn-sm">
-                                    Actualizar
-                                </a>
-                            </div>
-                            <div class="d-inline-flex">
-                                <a href="index.php?page=Productos&Id=<?php echo $rows['IdEvidencia']?>&actionprod=delete" class="btn btn-danger btn-sm">
+                                    <a href="index.php?page=EdicionEvidencias&IdE=<?php echo $rows['IdEvidencia'] ?>" class="btn btn-success btn-sm">
+                                        Actualizar
+                                    </a>
+                                </div>
+                                <div class="d-inline-flex">
+                                    <a href="index.php?page=EvidenciasServicios&IdE=<?php echo $rows['IdEvidencia'] ?>&actionevi=delete" class="btn btn-danger btn-sm">
                                         Eliminar
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-            <?php
-                }
+                <?php
                 endforeach;
-            ?>
-        </div>
-    <?php
-        }else if(!isset($Servicio)){
-    ?>
-        <div class="row justify-content-center">
-            <!-- <p>En esta seccion, se podran ver los diferentes productos que existen en la pagina. <br />
-                De igual manera hay un boton en la parte superior que permite el 
-                <a class="underline" tabindex="-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">filtrado</a>
-                 de los productos, de esta manera podra diferenciar sin importar cuantas tenga en el sitio web.
-            </p> -->
-        </div>
-        <hr>
-        <div class="row row-cols-1 row-cols-md-6 g-3">
-            <?php
-                foreach($dtevidencias as $rows):
-            ?>
-            <div class="col">
-                <div class="card hv-card">
-                    <img src="data:<?php echo $rows['EvidenciaTipoImg'] ?>;base64,<?php echo(base64_encode($rows['EvidenciaImg'])) ?>" alt="" class="card-img-top p-3" />
-                    <div class="card-body overflow-auto">
-                        <h5 class="card-title"><?php echo $rows['Servicio']?></h5>
-                        <p class="card-text"><?php echo $rows['Descripcion'] ?></p>
-                        <!-- <span class="text-muted fs-6 m-2"><?php //echo $rows['TipoHerramienta']?></span><br/> -->
-                        <div class="d-inline-flex">
-                            <a href="index.php?page=EdicionEvidencias&IdE=<?php echo $rows['IdEvidencia']?>" class="btn btn-success btn-sm">
-                                Actualizar
-                            </a>
-                        </div>
-                        <div class="d-inline-flex">
-                            <a href="index.php?page=EvidenciasServicios&IdE=<?php echo $rows['IdEvidencia']?>&actionevi=delete" class="btn btn-danger btn-sm">
-                                Eliminar
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                ?>
             </div>
-            <?php
-                endforeach;
-            ?>
-        </div>
-    <?php
+        <?php
         }
-    ?>
+        ?>
     </div>
 
 
