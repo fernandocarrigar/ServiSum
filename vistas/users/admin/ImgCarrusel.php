@@ -17,6 +17,8 @@ if (isset($_GET['ins'])) {
 }
 ?>
 <title>SSP - Agregar Imágenes De Carrusel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <div class="container shadow p-5 justify-content-center bg-dark-subtle">
 

@@ -86,3 +86,50 @@
     background-color: var(--login-highlight-color);
     transform: translateY(-2px);
 }
+
+/* Punto de interrupción para tablets */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 30px;
+    }
+
+    .login-logo-container {
+        width: 100px;
+        height: 100px;
+    }
+
+    .login-logo {
+        width: 80px;
+    }
+
+    .login-input-group {
+        margin: 15px 0;
+    }
+
+    .login-button {
+        padding: 15px;
+        font-size: 16px;
+    }
+}
+
+/* Punto de interrupción para móviles */
+@media (max-width: 480px) {
+    .login-logo-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .login-logo {
+        width: 60px;
+    }
+
+    .login-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .login-input[type="text"],
+    .login-input[type="password"] {
+        padding: 15px 40px;
+    }
+}

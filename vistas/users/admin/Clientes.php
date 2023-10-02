@@ -11,6 +11,47 @@ if (isset($_GET['ins']) && $_GET['ins'] == "Ok") {
 ?>
 
 <title>SSP - Clientes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    /* Por defecto (dispositivos pequeños), mostrar 1 elemento por fila */
+    .clientes-row-cols>* {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* En pantallas ≥576px, mostrar 2 elementos por fila */
+    @media (min-width: 576px) {
+        .clientes-row-cols>* {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    /* En pantallas ≥768px, mostrar 3 elementos por fila */
+    @media (min-width: 768px) {
+        .clientes-row-cols>* {
+            flex: 0 0 33.33333%;
+            max-width: 33.33333%;
+        }
+    }
+
+    /* En pantallas ≥992px, mostrar 4 elementos por fila */
+    @media (min-width: 992px) {
+        .clientes-row-cols>* {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+    }
+
+    /* En pantallas ≥1200px, mostrar 5 elementos por fila */
+    @media (min-width: 1200px) {
+        .clientes-row-cols>* {
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+    }
+</style>
 
 <div class="container shadow-lg p-5 bg-dark-subtle rounded">
 
@@ -18,7 +59,7 @@ if (isset($_GET['ins']) && $_GET['ins'] == "Ok") {
     <h1 class="text-center mb-5">Clientes para mostrar</h1>
 
     <div class="container p-4 bg-white rounded table-scroll" style="max-height: 1200px; overflow-y: auto;">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="row row-cols-1 clientes-row-cols g-4">
             <?php
             foreach ($dtclientes as $rows) :
             ?>

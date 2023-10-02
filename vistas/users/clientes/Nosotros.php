@@ -2,9 +2,10 @@
 require_once("modelos/model_publicaciones.php");
 ?>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SSP - Sobre Nosotros</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <header class="nosotros-header">
     <h1 class="nosotros-title">Acerca De Nosotros.</h1>

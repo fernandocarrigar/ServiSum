@@ -6,6 +6,55 @@ require_once("modelos/model_evidencias.php");
 ?>
 
 <title>SSP - Evidencias De Servicios</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    /* Por defecto (dispositivos pequeños), mostrar 1 elemento por fila */
+    .evidencias-row-cols>* {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* En pantallas ≥576px, mostrar 2 elementos por fila */
+    @media (min-width: 576px) {
+        .evidencias-row-cols>* {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    /* En pantallas ≥768px, mostrar 3 elementos por fila */
+    @media (min-width: 768px) {
+        .evidencias-row-cols>* {
+            flex: 0 0 33.33333%;
+            max-width: 33.33333%;
+        }
+    }
+
+    /* En pantallas ≥992px, mostrar 4 elementos por fila */
+    @media (min-width: 992px) {
+        .evidencias-row-cols>* {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+    }
+
+    /* En pantallas ≥1200px, mostrar 5 elementos por fila */
+    @media (min-width: 1200px) {
+        .evidencias-row-cols>* {
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+    }
+
+    /* En pantallas ≥1400px, mostrar 6 elementos por fila */
+    @media (min-width: 1400px) {
+        .evidencias-row-cols>* {
+            flex: 0 0 16.66667%;
+            max-width: 16.66667%;
+        }
+    }
+</style>
 
 <!-- Navbar lateral start-->
 
@@ -97,7 +146,7 @@ require_once("modelos/model_evidencias.php");
             </p> -->
             </div>
             <hr>
-            <div class="row row-cols-1 row-cols-md-6 g-3">
+            <div class="row row-cols-1 evidencias-row-cols g-2">
                 <?php
                 foreach ($dtevidencias as $rows) :
                 ?>

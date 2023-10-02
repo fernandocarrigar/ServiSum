@@ -3,6 +3,7 @@ require_once("modelos/model_servicios.php");
 ?>
 
 <title>SSP - Servicios</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="container table-responsive justify-content-center p-0 table-scroll" style="max-height:500px;">
     <table class="table table-hover overflow-auto table-responsive-sm m-0 break-word">

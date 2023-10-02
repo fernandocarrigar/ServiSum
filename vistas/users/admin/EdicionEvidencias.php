@@ -11,6 +11,8 @@ if ((!empty($_GET["form"])) && (isset($_GET["form"]))) {
 }
 ?>
 <title>SSP - Editar Evidencias De Servicios</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <!-- Navbar lateral end-->
 
 <div class="container p-5 justify-content-center bg-dark-subtle">

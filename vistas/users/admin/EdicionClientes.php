@@ -2,6 +2,7 @@
 <?php require_once("modelos/model_clientes.php"); ?>
 
 <title>SSP - Edición de Clientes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="container p-5 justify-content-center bg-dark-subtle">
 

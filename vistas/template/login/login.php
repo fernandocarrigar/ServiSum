@@ -1,6 +1,7 @@
 <?php
 include_once("modelos/model_login.php");
 ?>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SSP - Iniciar Sesión</title>
 
