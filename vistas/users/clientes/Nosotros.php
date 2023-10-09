@@ -8,7 +8,7 @@ require_once("modelos/model_publicaciones.php");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <header class="nosotros-header">
-    <h1 class="nosotros-title">Acerca De Nosotros.</h1>
+    <h1 class="nosotros-title">Servicios y Suministros Peninsulares.</h1>
 </header>
 <div class="nosotros-container">
     <section id="quienes-somos">
